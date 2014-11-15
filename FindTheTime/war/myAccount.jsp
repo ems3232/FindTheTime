@@ -58,7 +58,7 @@
       <li><a href="#">My Account Settings</a></li>
       <li><a href="#">My Groups</a></li>
       <li><a href="#">My Calendar</a></li>
-      <li><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign Out</a></li>
+      <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign Out</a></li>
     </ul>
   </div>
 </div>
@@ -85,7 +85,7 @@
       <li><a href="#">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="<%=userService.createLoginURL(request.getRequestURI())%>">Sign In</a></li>
+      <li class="active"><a href="<%=userService.createLoginURL(request.getRequestURI())%>">Sign In</a></li>
     </ul>
   </div>
 </div>
