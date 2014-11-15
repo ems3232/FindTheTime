@@ -12,7 +12,6 @@
 <%@ page import="com.google.appengine.api.datastore.KeyFactory"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-
 <html>
 <head>
 <link type="text/css" rel="stylesheet" href="/FindTheTime.css" />
@@ -29,47 +28,14 @@
 	
 	<div id="menu">
 	<%
-		String guestbookName = request.getParameter("guestbookName");
+	String guestbookName = request.getParameter("guestbookName");
 		if (guestbookName == null) {
 			guestbookName = "default";
 		}
 		pageContext.setAttribute("guestbookName", guestbookName);
 		UserService userService = UserServiceFactory.getUserService();
 		User user = userService.getCurrentUser();
-		if (user != null) {
-			pageContext.setAttribute("user", user);
-	%>
-		<div class="navbar navbar-default">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">Find The Time</a>
-  </div>
-  <div class="navbar-collapse collapse navbar-responsive-collapse">
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="/FindTheTime.jsp">Home</a></li>
-      <li><a href="/about.jsp">About</a></li>
-      <li><a href="/createGroup.jsp">Create a Group</a></li>
-      <li><a href="/joinGroup.jsp">Join a Group</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li class="active"><a href="/myAccount.jsp">My Account Settings</a></li>
-      <li><a href="#">My Groups</a></li>
-      <li><a href="#">My Calendar</a></li>
-      <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign Out</a></li>
-    </ul>
-  </div>
-</div>
-	<div id="content">
-		<p>I AM THE CONTENT OF THIS PAGE FOR SIGNED IN USERS!!!</p>
-		<h2>This is the My Account Settings Page.</h2>
-	</div>
-	<%
-		} else {
-	%>
+		%>
 	<div class="navbar navbar-default">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -77,24 +43,30 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Find The Time</a>
+    <a class="navbar-brand" href="/FindTheTime.jsp">Find The Time</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
       <li><a href="/FindTheTime.jsp">Home</a></li>
-      <li><a href="/about.jsp">About Find The Time</a></li>
-      <li><a href="#">FAQs</a></li>
+      <li class="active"><a href="/about.jsp">About</a></li>
+      <li><a href="/createGroup.jsp">Create a Group</a></li>
+      <li><a href="/joinGroup.jsp">Join a Group</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li class="active"><a href="<%=userService.createLoginURL(request.getRequestURI())%>">Sign In</a></li>
+      <li><a href="/myAccount.jsp">My Account Settings</a></li>
+      <li><a href="#">My Groups</a></li>
+      <li><a href="#">My Calendar</a></li>
+      <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign
+			Out</a></li>
     </ul>
   </div>
 </div>
 	<div id="content">
-		<p>You have signed out. Please sign in again to see your account information. <a href="/FindTheTime.jsp">Home</a></p>
+		<h3>About Find The Time!</h3>
+		<p>We are a web application dedicated to helping college students find the time to meet for group projects.<br>
+		Our application was inspired by our experiences taking multiple courses with team projects simultaneously<br>
+		with different members in each group.  We hope that our application can fill the need for students who need<br>
+		to schedule recurring meetings in a simple manner.</p>
 	</div>
-	<%
-		}
-	%>
-</body>
+</body>   
 </html>
