@@ -35,8 +35,6 @@
 		pageContext.setAttribute("guestbookName", guestbookName);
 		UserService userService = UserServiceFactory.getUserService();
 		User user = userService.getCurrentUser();
-		if (user != null) {
-			pageContext.setAttribute("user", user);
 		%>
 	<div class="navbar navbar-default">
   <div class="navbar-header">
@@ -50,8 +48,8 @@
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
       <li><a href="/FindTheTime.jsp">Home</a></li>
-      <li><a href="/about.jsp">About</a></li>
-      <li class="active"><a href="/createGroup.jsp">Create a Group</a></li>
+      <li class="active"><a href="/about.jsp">About</a></li>
+      <li><a href="/createGroup.jsp">Create a Group</a></li>
       <li><a href="/joinGroup.jsp">Join a Group</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -64,47 +62,11 @@
   </div>
 </div>
 	<div id="content">
-		<h3>Create a group below!</h3>
-		<form action="/createGroup" method="post">
-		Team Name: <input type="text" name="teamName"> 
-		<br><br>
-		Team Members' Email Addresses<br>
-		Member 1: <input type="text" name="user1"><br>
-		Member 2: <input type="text" name="user2"><br>
-		Member 3: <input type="text" name="user3"><br>
-		Member 4: <input type="text" name="user4"><br>
-		Member 5: <input type="text" name="user5"><br>
-		<input type="submit" value="Submit"> <input type="reset" value="Clear All">
-		</form>
+		<h3>About Find The Time!</h3>
+		<p>We are a web application dedicated to helping college students find the time to meet for group projects.<br>
+		Our application was inspired by our experiences taking multiple courses with team projects simultaneously<br>
+		with different members in each group.  We hope that our application can fill the need for students who need<br>
+		to schedule recurring meetings in a simple manner.</p>
 	</div>
-	<%
-		} else {
-	%>
-		<div class="navbar navbar-default">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">Find The Time</a>
-  </div>
-  <div class="navbar-collapse collapse navbar-responsive-collapse">
-    <ul class="nav navbar-nav">
-      <li><a href="/FindTheTime.jsp">Home</a></li>
-      <li><a href="/about.jsp">About Find The Time</a></li>
-      <li><a href="#">FAQs</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li class="active"><a href="<%=userService.createLoginURL(request.getRequestURI())%>">Sign In</a></li>
-    </ul>
-  </div>
-</div>
-	<div id="content">
-		<p>You cannot create a group unless you sign in. <a href="/FindTheTime.jsp">Home</a></p>
-	</div>
-	<%
-		}
-	%>
 </body>   
 </html>

@@ -38,7 +38,7 @@
 		if (user != null) {
 			pageContext.setAttribute("user", user);
 		%>
-	<div class="navbar navbar-default">
+<div class="navbar navbar-default">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
       <span class="icon-bar"></span>
@@ -51,8 +51,8 @@
     <ul class="nav navbar-nav">
       <li><a href="/FindTheTime.jsp">Home</a></li>
       <li><a href="/about.jsp">About</a></li>
-      <li class="active"><a href="/createGroup.jsp">Create a Group</a></li>
-      <li><a href="/joinGroup.jsp">Join a Group</a></li>
+      <li><a href="/createGroup.jsp">Create a Group</a></li>
+      <li class="active"><a href="/joinGroup.jsp">Join a Group</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/myAccount.jsp">My Account Settings</a></li>
@@ -64,23 +64,18 @@
   </div>
 </div>
 	<div id="content">
-		<h3>Create a group below!</h3>
-		<form action="/createGroup" method="post">
+		<h3>Search for a group by name below.</h3>
+		<p>(Note: You must be added into the group by the group leader in order to join an existing group from this page.</p>
+		<form action="/joinGroup" method="post">
 		Team Name: <input type="text" name="teamName"> 
-		<br><br>
-		Team Members' Email Addresses<br>
-		Member 1: <input type="text" name="user1"><br>
-		Member 2: <input type="text" name="user2"><br>
-		Member 3: <input type="text" name="user3"><br>
-		Member 4: <input type="text" name="user4"><br>
-		Member 5: <input type="text" name="user5"><br>
+		<br>
 		<input type="submit" value="Submit"> <input type="reset" value="Clear All">
 		</form>
 	</div>
 	<%
 		} else {
 	%>
-		<div class="navbar navbar-default">
+<div class="navbar navbar-default">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
       <span class="icon-bar"></span>
@@ -101,10 +96,10 @@
   </div>
 </div>
 	<div id="content">
-		<p>You cannot create a group unless you sign in. <a href="/FindTheTime.jsp">Home</a></p>
+		<p>You cannot join a group unless you sign in. <a href="/FindTheTime.jsp">Home</a></p>
 	</div>
 	<%
 		}
-	%>
+		%>
 </body>   
 </html>

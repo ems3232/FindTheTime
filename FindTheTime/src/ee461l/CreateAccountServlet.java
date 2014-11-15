@@ -19,4 +19,3 @@ public class CreateAccountServlet extends HttpServlet {
 		resp.sendRedirect("/myAccount.jsp");
 	}
 }
-//Testing Git override 

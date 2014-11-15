@@ -49,12 +49,13 @@
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
+      <li class="active"><a href="/FindTheTime.jsp">Home</a></li>
+      <li><a href="/about.jsp">About</a></li>
       <li><a href="/createGroup.jsp">Create a Group</a></li>
+      <li><a href="/joinGroup.jsp">Join a Group</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">My Account Settings</a></li>
+      <li><a href="/myAccount.jsp">My Account Settings</a></li>
       <li><a href="#">My Groups</a></li>
       <li><a href="#">My Calendar</a></li>
       <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign
@@ -80,7 +81,7 @@
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">About Find The Time</a></li>
+      <li><a href="/about.jsp">About Find The Time</a></li>
       <li><a href="#">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
