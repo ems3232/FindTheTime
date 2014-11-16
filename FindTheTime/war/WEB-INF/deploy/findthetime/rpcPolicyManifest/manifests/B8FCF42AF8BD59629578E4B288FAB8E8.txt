@@ -1,2 +1,0 @@
-serviceClass: ee461l.client.GreetingService
-path: DC59667FEC19C787B43F99AFCD65A34F.gwt.rpc
