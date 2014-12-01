@@ -15,7 +15,16 @@
         <servlet-name>greetServlet</servlet-name>
         <url-pattern>/findthetime/greet</url-pattern>
     </servlet-mapping>
- 
+  
+    <servlet>
+		<servlet-name>joinGroup</servlet-name>
+		<servlet-class>ee461l.JoinGroupServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>joinGroup</servlet-name>
+		<url-pattern>/joinGroup</url-pattern>
+	</servlet-mapping>
+  
     <servlet>
 		<servlet-name>createGroup</servlet-name>
 		<servlet-class>ee461l.CreateGroupServlet</servlet-class>
@@ -32,15 +41,6 @@
 	<servlet-mapping>
 		<servlet-name>createAccount</servlet-name>
 		<url-pattern>/createAccount</url-pattern>
-	</servlet-mapping>
-	
-	  <servlet>
-		<servlet-name>joinGroup</servlet-name>
-		<servlet-class>ee461l.joinGroupServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>joinGroup</servlet-name>
-		<url-pattern>/joinGroup</url-pattern>
 	</servlet-mapping>
   
   <!-- Default page to serve -->
