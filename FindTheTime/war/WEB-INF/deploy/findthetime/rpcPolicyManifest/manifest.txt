@@ -1,2 +1,3 @@
 # Module findthetime
 # RPC service class, partial path of RPC policy file
+ee461l.client.GreetingService, DC59667FEC19C787B43F99AFCD65A34F.gwt.rpc
