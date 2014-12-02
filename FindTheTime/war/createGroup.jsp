@@ -47,19 +47,18 @@
     </button>
     <a class="navbar-brand" href="/FindTheTime.jsp">Find The Time</a>
   </div>
-  <div class="navbar-collapse collapse navbar-responsive-collapse">
+<div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-      <li><a href="/FindTheTime.jsp">Home</a></li>
+      <li class="active"><a href="/FindTheTime.jsp">Home</a></li>
       <li><a href="/about.jsp">About</a></li>
       <li class="active"><a href="/createGroup.jsp">Create a Group</a></li>
       <li><a href="/joinGroup.jsp">Join a Group</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/myAccount.jsp">My Account Settings</a></li>
-      <li><a href="#">My Groups</a></li>
-      <li><a href="#">My Calendar</a></li>
-      <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign
-			Out</a></li>
+      <li><a href="/myGroups.jsp">My Groups</a></li>
+      <li><a href="/myCalendar.jsp">My Calendar</a></li>
+      <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign Out</a></li>
     </ul>
   </div>
 </div>

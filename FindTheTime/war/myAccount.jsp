@@ -46,7 +46,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Find The Time</a>
+    <a class="navbar-brand" href="/FindTheTime.jsp">Find The Time</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
@@ -57,15 +57,15 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="active"><a href="/myAccount.jsp">My Account Settings</a></li>
-      <li><a href="#">My Groups</a></li>
-      <li><a href="#">My Calendar</a></li>
-      <li><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign Out</a></li>
+      <li><a href="/myGroups.jsp">My Groups</a></li>
+      <li><a href="/myCalendar.jsp">My Calendar</a></li>
+      <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign Out</a></li>
     </ul>
   </div>
 </div>
 	<div id="content">
 		<p>I AM THE CONTENT OF THIS PAGE FOR SIGNED IN USERS!!!</p>
-		<h2>This is the My Account Settings Page.</h2>
+		<h2>This is the My Calendar Page.</h2>
 	</div>
 	<%
 		} else {
@@ -77,16 +77,16 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Find The Time</a>
+    <a class="navbar-brand" href="/FindTheTime.jsp#">Find The Time</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
       <li><a href="/FindTheTime.jsp">Home</a></li>
       <li><a href="/about.jsp">About Find The Time</a></li>
-      <li><a href="#">FAQs</a></li>
+      <li><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="<%=userService.createLoginURL(request.getRequestURI())%>">Sign In</a></li>
+      <li class="active"><a href="<%=userService.createLoginURL(request.getRequestURI())%>">Sign In</a></li>
     </ul>
   </div>
 </div>

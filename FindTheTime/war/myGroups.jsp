@@ -12,6 +12,7 @@
 <%@ page import="com.google.appengine.api.datastore.KeyFactory"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+
 <html>
 <head>
 <link type="text/css" rel="stylesheet" href="/FindTheTime.css" />
@@ -38,14 +39,14 @@
 		if (user != null) {
 			pageContext.setAttribute("user", user);
 	%>
-	<div class="navbar navbar-default">
+		<div class="navbar navbar-default">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Find The Time</a>
+    <a class="navbar-brand" href="/FindTheTime.jsp">Find The Time</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
@@ -56,32 +57,33 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/myAccount.jsp">My Account Settings</a></li>
-      <li><a href="/myGroups.jsp">My Groups</a></li>
+      <li class="active"><a href="/myGroups.jsp">My Groups</a></li>
       <li><a href="/myCalendar.jsp">My Calendar</a></li>
       <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign Out</a></li>
     </ul>
   </div>
 </div>
 	<div id="content">
-		<p>Content of the home page. -a signed in user</p>
+		<p>I AM THE CONTENT OF THIS PAGE FOR SIGNED IN USERS!!!</p>
+		<h2>This is the My Groups Page.</h2>
 	</div>
 	<%
 		} else {
 	%>
-		<div class="navbar navbar-default">
+	<div class="navbar navbar-default">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Find The Time</a>
+    <a class="navbar-brand" href="/FindTheTime.jsp#">Find The Time</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li><a href="/FindTheTime.jsp">Home</a></li>
       <li><a href="/about.jsp">About Find The Time</a></li>
-      <li><a href="#">FAQs</a></li>
+      <li><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="active"><a href="<%=userService.createLoginURL(request.getRequestURI())%>">Sign In</a></li>
@@ -89,10 +91,10 @@
   </div>
 </div>
 	<div id="content">
-		<p>CONTENT FOR NON-SIGNED IN USERS!</a></p>
+		<p>You have signed out. Please sign in again to see your account information. <a href="/FindTheTime.jsp">Home</a></p>
 	</div>
 	<%
 		}
 	%>
-</body>   
+</body>
 </html>

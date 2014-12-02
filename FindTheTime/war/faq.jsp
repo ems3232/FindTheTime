@@ -28,7 +28,7 @@
 	
 	<div id="menu">
 	<%
-		String guestbookName = request.getParameter("guestbookName");
+	String guestbookName = request.getParameter("guestbookName");
 		if (guestbookName == null) {
 			guestbookName = "default";
 		}
@@ -37,7 +37,7 @@
 		User user = userService.getCurrentUser();
 		if (user != null) {
 			pageContext.setAttribute("user", user);
-	%>
+		%>
 	<div class="navbar navbar-default">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -45,12 +45,12 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Find The Time</a>
+    <a class="navbar-brand" href="/FindTheTime.jsp">Find The Time</a>
   </div>
-  <div class="navbar-collapse collapse navbar-responsive-collapse">
+<div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
       <li class="active"><a href="/FindTheTime.jsp">Home</a></li>
-      <li><a href="/about.jsp">About</a></li>
+      <li class="active"><a href="/about.jsp">About</a></li>
       <li><a href="/createGroup.jsp">Create a Group</a></li>
       <li><a href="/joinGroup.jsp">Join a Group</a></li>
     </ul>
@@ -63,8 +63,9 @@
   </div>
 </div>
 	<div id="content">
-		<p>Content of the home page. -a signed in user</p>
+		<h3>I am the FAQ page.</h3>
 	</div>
+	
 	<%
 		} else {
 	%>
@@ -75,13 +76,13 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Find The Time</a>
+    <a class="navbar-brand" href="/FindTheTime.jsp">Find The Time</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li class="active"><a href="/FindTheTime.jsp">Home</a></li>
       <li><a href="/about.jsp">About Find The Time</a></li>
-      <li><a href="#">FAQs</a></li>
+      <li class="active"><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="active"><a href="<%=userService.createLoginURL(request.getRequestURI())%>">Sign In</a></li>
@@ -89,7 +90,7 @@
   </div>
 </div>
 	<div id="content">
-		<p>CONTENT FOR NON-SIGNED IN USERS!</a></p>
+		<p>I am the FAQ page for a logged-out user.</p>
 	</div>
 	<%
 		}
