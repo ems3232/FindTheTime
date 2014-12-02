@@ -66,6 +66,10 @@
 	<div id="content">
 		<p>I AM THE CONTENT OF THIS PAGE FOR SIGNED IN USERS!!!</p>
 		<h2>This is the My Calendar Page.</h2>
+		<h3>Update Calendar!</h3>
+		<form action="/createCal" method="post">
+		<input type="submit" value="Update"> 
+		</form>
 	</div>
 	<%
 		} else {

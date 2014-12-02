@@ -52,22 +52,21 @@ public class CreateGroupServlet extends HttpServlet {
             String user4 = req.getParameter("user4");
             String user5 = req.getParameter("user5");
             strCallResult= "Hello"+ "\n"+"You are invited to -"+teamName+"-"+ "\n"+
-            		"Please Join this group"+"\n"+"just type in -"+teamName+"-\nIn the correct Field"
-            		+"Please sign in, need to check if you all get in -Kelly"+
-            		"\n go to kellyfindthetime67.appspot.com , you need to use the team name hopethisfuckingworks";
-            				
+            		"Please Join this group"+"\n"+"just type in -"+
+            		teamName+"-\nIn the correct Field";
           //  Date date = new Date();
             Entity group = new Entity("group", timeKey);
             group.setProperty("teamName", teamName);
             group.setProperty("user0", user0);
             group.setProperty("user0Flag", true);
+            group.setProperty("Cal0Flag", false);
             sendEmail(strCallResult, user0);
             Entity users =createUser(user,timeKey,teamName);
             
             if (isValidEmailAddress(user1)){
             group.setProperty("user1", user1);
             group.setProperty("user1Flag",false);
-
+            group.setProperty("Cal1Flag", false);
             sendEmail(strCallResult, user1);
             }
             else{
@@ -77,6 +76,7 @@ public class CreateGroupServlet extends HttpServlet {
             if (isValidEmailAddress(user2)){
                 group.setProperty("user2", user2);
                 group.setProperty("user2Flag",false);
+                group.setProperty("Cal2Flag", false);
              sendEmail(strCallResult, user2);
                 }
                 else{
@@ -86,7 +86,7 @@ public class CreateGroupServlet extends HttpServlet {
             if (isValidEmailAddress(user3)){
                     group.setProperty("user3", user3);
                     group.setProperty("user3Flag",false);
-
+                    group.setProperty("Cal3Flag", false);
                   sendEmail(strCallResult, user3);
                     }
                 else{
@@ -96,7 +96,7 @@ public class CreateGroupServlet extends HttpServlet {
             if (isValidEmailAddress(user4)){
                     group.setProperty("user4", user4);
                     group.setProperty("user4Flag",false);
-
+                    group.setProperty("Cal4Flag", false);
                    sendEmail(strCallResult, user4);
                     }
                 else{
@@ -106,6 +106,7 @@ public class CreateGroupServlet extends HttpServlet {
             if (isValidEmailAddress(user5)){
                     group.setProperty("user5", user5);
                     group.setProperty("user5Flag",false);
+                    group.setProperty("Cal5Flag", false);
                  sendEmail(strCallResult, user5);
                     }
                 else{
@@ -152,7 +153,7 @@ public void sendEmail(String strCallResult,String userPerson){
     }
    private Entity createUser(User user,Key timeKey,String teamName) {
 		Entity newUserEntity = new Entity("users",timeKey);
-		newUserEntity.setProperty("userEmail", user.getEmail());
+		newUserEntity.setProperty("userEmail", user.getEmail().toLowerCase());
 		newUserEntity.setProperty("group1", teamName);
 		newUserEntity.setProperty("group2", null);
 		newUserEntity.setProperty("group3", null);

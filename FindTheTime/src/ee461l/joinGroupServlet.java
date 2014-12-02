@@ -1,5 +1,6 @@
 package ee461l;
 
+
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -43,8 +44,8 @@ public class joinGroupServlet extends HttpServlet {
         
         boolean found = false;
         Entity users = null;
-        for (Entity e : usersList) {
-        	if (e.getProperty("userEmail").toString().equals(user.getEmail())) {
+       for(Entity e : usersList) {
+        	if (e.getProperty("userEmail").toString().equalsIgnoreCase(user.getEmail())) {
         		found = true;
         		users = e;
         		break;
@@ -55,6 +56,7 @@ public class joinGroupServlet extends HttpServlet {
         	users = createUser(user,appKey);
         datastore.put(users);}
         //get the team entity
+        
         query = new Query("group", appKey);
         List<Entity> groups = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5000));
         
@@ -66,11 +68,10 @@ public class joinGroupServlet extends HttpServlet {
         	}
         }
      
-      
-     
+   
         //add user to group
         for (Integer i = 1; i <= 5; i++) {
-        	if (teamEntity.getProperty("user" + i.toString()).equals(user.getEmail())) {
+        	if (teamEntity.getProperty("user" + i.toString()).toString().equalsIgnoreCase(user.getEmail())) {
         		teamEntity.setProperty("user" + i.toString() + "Flag", true);
         		break;
         	}

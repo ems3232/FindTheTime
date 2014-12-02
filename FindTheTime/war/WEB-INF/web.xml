@@ -42,6 +42,15 @@
 		<servlet-name>joinGroup</servlet-name>
 		<url-pattern>/joinGroup</url-pattern>
 	</servlet-mapping>
+	
+	  <servlet>
+		<servlet-name>createCal</servlet-name>
+		<servlet-class>ee461l.CreateCalendarServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>createCal</servlet-name>
+		<url-pattern>/createCal</url-pattern>
+	</servlet-mapping>
   
   <!-- Default page to serve -->
   <welcome-file-list>
