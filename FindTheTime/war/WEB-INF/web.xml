@@ -52,6 +52,24 @@
 		<url-pattern>/createCal</url-pattern>
 	</servlet-mapping>
   
+	  <servlet>
+		<servlet-name>FuckThisShit</servlet-name>
+		<servlet-class>ee461l.ReturnAuthServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FuckThisShit</servlet-name>
+		<url-pattern>/FuckThisShit</url-pattern>
+	</servlet-mapping>
+	
+	  <servlet>
+    <servlet-name>oauth2Callback</servlet-name>
+    <servlet-class>ee461l.OAuth2Callback</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>oauth2Callback</servlet-name>
+    <url-pattern>/oauth2callback</url-pattern>
+  </servlet-mapping>
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>FindTheTime.jsp</welcome-file>

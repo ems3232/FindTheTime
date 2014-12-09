@@ -8,5 +8,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="C:/Users/KellyA/Desktop/selenium-java-2.44.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/KellyA/Desktop/appengine-testing-1.6.1.1.jar" sourcepath=""/>
+	<classpathentry kind="con" path="com.google.gdt.eclipse.managedapis.MANAGED_API_CONTAINER/calendar-v3r110lv1.18.0-rc"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
