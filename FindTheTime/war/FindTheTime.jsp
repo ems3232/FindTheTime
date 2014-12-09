@@ -50,9 +50,9 @@
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
       <li class="active"><a href="/FindTheTime.jsp">Home</a></li>
-      <li><a href="/about.jsp">About</a></li>
       <li><a href="/createGroup.jsp">Create a Group</a></li>
       <li><a href="/joinGroup.jsp">Join a Group</a></li>
+      <li><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/myAccount.jsp">My Account Settings</a></li>
@@ -63,7 +63,11 @@
   </div>
 </div>
 	<div id="content">
-		<p>Content of the home page. -a signed in user</p>
+		<h3>About Find The Time!</h3>
+		<p>We are a web application dedicated to helping college students find the time to meet for group projects.<br>
+		Our application was inspired by our experiences taking multiple courses with team projects simultaneously<br>
+		with different members in each group.  We hope that our application can fill the need for students who need<br>
+		to schedule recurring meetings in a simple manner.</p>
 	</div>
 	<%
 		} else {
@@ -79,9 +83,8 @@
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="/about.jsp">About Find The Time</a></li>
-      <li><a href="#">FAQs</a></li>
+      <li class="active"><a href="FindTheTime.jsp">Home</a></li>
+      <li><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="active"><a href="<%=userService.createLoginURL(request.getRequestURI())%>">Sign In</a></li>
@@ -89,7 +92,13 @@
   </div>
 </div>
 	<div id="content">
-		<p>CONTENT FOR NON-SIGNED IN USERS!</a></p>
+		<h3>About Find The Time!</h3>
+		<p>We are a web application dedicated to helping college students find the time to meet for group projects.<br>
+		Our application was inspired by our experiences taking multiple courses with team projects simultaneously<br>
+		with different members in each group.  We hope that our application can fill the need for students who need<br>
+		to schedule recurring meetings in a simple manner.</p>
+		</br>
+		<p>Please sign in to make use of our application!</p>
 	</div>
 	<%
 		}

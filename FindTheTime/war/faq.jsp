@@ -49,10 +49,10 @@
   </div>
 <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/FindTheTime.jsp">Home</a></li>
-      <li class="active"><a href="/about.jsp">About</a></li>
+      <li><a href="/FindTheTime.jsp">Home</a></li>
       <li><a href="/createGroup.jsp">Create a Group</a></li>
       <li><a href="/joinGroup.jsp">Join a Group</a></li>
+      <li class="active"><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/myAccount.jsp">My Account Settings</a></li>
@@ -94,8 +94,14 @@
 		<p>Yes.</p>
 		</br>
 		<h3>How does it know when I'm free to work with my group?</h3>
-		<p>The application will pull events from within team members' Google Calendars and search for time slots that all members are available.  </p>
-	</div>
+		<p>The application will request you to input all the times you have a conflict and then search through all members’ schedules and find time slots that all members can meet.</p>
+		</br>
+		<h3>Will I have to put my schedule in every week?</h3>
+		<p>No. You can set an event as a recurring conflict and it will carry over to the next week. However, if you have a one time event, you will have to go back in and update your schedule.</p>
+		</br>
+		<h3>How will we know what our top meeting times are?</h3>
+		<p>We will send an email to the leader of your group with the top three meeting times where they can then decide which time works best for your team.</p>
+		</div>
 	
 	<%
 		} else {
@@ -111,8 +117,7 @@
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/FindTheTime.jsp">Home</a></li>
-      <li><a href="/about.jsp">About Find The Time</a></li>
+      <li><a href="/FindTheTime.jsp">Home</a></li>
       <li class="active"><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -152,7 +157,13 @@
 		<p>Yes.</p>
 		</br>
 		<h3>How does it know when I'm free to work with my group?</h3>
-		<p>The application will pull events from within team members' Google Calendars and search for time slots that all members are available.  </p>
+		<p>The application will request you to input all the times you have a conflict and then search through all members’ schedules and find time slots that all members can meet.</p>
+		</br>
+		<h3>Will I have to put my schedule in every week?</h3>
+		<p>No. You can set an event as a recurring conflict and it will carry over to the next week. However, if you have a one time event, you will have to go back in and update your schedule.</p>
+		</br>
+		<h3>How will we know what our top meeting times are?</h3>
+		<p>We will send an email to the leader of your group with the top three meeting times where they can then decide which time works best for your team.</p>
 	</div>
 	<%
 		}

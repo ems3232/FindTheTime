@@ -50,10 +50,10 @@
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/FindTheTime.jsp">Home</a></li>
-      <li><a href="/about.jsp">About</a></li>
+      <li><a href="/FindTheTime.jsp">Home</a></li>
       <li><a href="/createGroup.jsp">Create a Group</a></li>
       <li><a href="/joinGroup.jsp">Join a Group</a></li>
+      <li><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/myAccount.jsp">My Account Settings</a></li>
@@ -64,11 +64,23 @@
   </div>
 </div>
 	<div id="content">
-		<p>I AM THE CONTENT OF THIS PAGE FOR SIGNED IN USERS!!!</p>
 		<h2>This is the My Calendar Page.</h2>
+		
+		<form action="/addEvents.jsp">
+    		<input type="submit" value="Add Events to My Calendar">
+		</form>
+		</br>
+		</br>
+		<form action="/viewCalendar.jsp">
+    		<input type="submit" value="View & Delete Events in My Calendar">
+		</form>
+		</br>
+		</br>
+		</br>
+		</br>
 		<h3>Update Calendar!</h3>
 		<form action="/createCal" method="post">
-		<input type="submit" value="Update"> 
+			<input type="submit" value="Update"> 
 		</form>
 	</div>
 	<%
@@ -86,7 +98,6 @@
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
       <li><a href="/FindTheTime.jsp">Home</a></li>
-      <li><a href="/about.jsp">About Find The Time</a></li>
       <li><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">

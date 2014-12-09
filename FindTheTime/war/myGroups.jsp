@@ -50,10 +50,10 @@
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/FindTheTime.jsp">Home</a></li>
-      <li><a href="/about.jsp">About</a></li>
+      <li><a href="/FindTheTime.jsp">Home</a></li>
       <li><a href="/createGroup.jsp">Create a Group</a></li>
       <li><a href="/joinGroup.jsp">Join a Group</a></li>
+      <li><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/myAccount.jsp">My Account Settings</a></li>
@@ -64,8 +64,33 @@
   </div>
 </div>
 	<div id="content">
-		<p>I AM THE CONTENT OF THIS PAGE FOR SIGNED IN USERS!!!</p>
 		<h2>This is the My Groups Page.</h2>
+		
+		<table>
+			<tr>
+				<th>Group Name</th>
+				<th>Member 1</th>
+				<th>Member 2</th>
+				<th>Member 3</th>
+				<th>Member 4</th>
+				<th>Member 5</th>
+				<th>Member 6</th>
+			</tr>
+			<%
+			//probably can make a while loop for all groups a member has surrounding this to add rows for every
+			//group they are in. Use the appropriate "getMember" info from the gorup and put the group name (?) 
+			%>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<%//end the loop here%>
+		</table>
 	</div>
 	<%
 		} else {
@@ -82,7 +107,6 @@
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
       <li><a href="/FindTheTime.jsp">Home</a></li>
-      <li><a href="/about.jsp">About Find The Time</a></li>
       <li><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">

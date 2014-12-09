@@ -50,10 +50,10 @@
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/FindTheTime.jsp">Home</a></li>
-      <li><a href="/about.jsp">About</a></li>
+      <li><a href="/FindTheTime.jsp">Home</a></li>
       <li><a href="/createGroup.jsp">Create a Group</a></li>
       <li><a href="/joinGroup.jsp">Join a Group</a></li>
+      <li><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="active"><a href="/myAccount.jsp">My Account Settings</a></li>
@@ -64,8 +64,8 @@
   </div>
 </div>
 	<div id="content">
-		<p>I AM THE CONTENT OF THIS PAGE FOR SIGNED IN USERS!!!</p>
-		<h2>This is the My Calendar Page.</h2>
+		<h2>This is the My Account Settings Page.</h2>
+		<p>Not too sure what goes here right now.</p>		
 	</div>
 	<%
 		} else {
@@ -82,7 +82,6 @@
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
       <li><a href="/FindTheTime.jsp">Home</a></li>
-      <li><a href="/about.jsp">About Find The Time</a></li>
       <li><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
