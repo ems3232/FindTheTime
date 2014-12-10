@@ -106,40 +106,15 @@ option23.value = "23";
 var optiona = document.createElement("option");
 optiona.innerHTML = "00";
 optiona.value = "00";
-
-var optionb = document.createElement("option");
-optionb.innerHTML = "05";
-optionb.value = "05";
-var optionc = document.createElement("option");
-optionc.innerHTML = "10";
-optionc.value = "10";
 var optiond = document.createElement("option");
 optiond.innerHTML = "15";
 optiond.value = "15";
-var optione = document.createElement("option");
-optione.innerHTML = "20";
-optione.value = "20";
-var optionf = document.createElement("option");
-optionf.innerHTML = "25";
-optionf.value = "25";
 var optiong = document.createElement("option");
 optiong.innerHTML = "30";
 optiong.value = "30";
-var optionh = document.createElement("option");
-optionh.innerHTML = "35";
-optionh.value = "35";
-var optioni = document.createElement("option");
-optioni.innerHTML = "40";
-optioni.value = "40";
 var optionj = document.createElement("option");
 optionj.innerHTML = "45";
 optionj.value = "45";
-var optionk = document.createElement("option");
-optionk.innerHTML = "50";
-optionk.value = "50";
-var optionl = document.createElement("option");
-optionl.innerHTML = "55";
-optionl.value = "55";
 
     var element2 = document.createElement("select");
     element2.add(option0, null);
@@ -166,20 +141,13 @@ optionl.value = "55";
     element2.add(option21, null);
     element2.add(option22, null);
     element2.add(option23, null);
-    var text = document.createTextNode(':');
+ 
+    var text = document.createTextNode(' : ');
     var element3 = document.createElement("select");
     element3.add(optiona, null);
-    element3.add(optionb, null);
-    element3.add(optionc, null);
     element3.add(optiond, null);
-    element3.add(optione, null);
-    element3.add(optionf, null);
     element3.add(optiong, null);
-    element3.add(optionh, null);
-    element3.add(optioni, null);
     element3.add(optionj, null);
-    element3.add(optionk, null);
-    element3.add(optionl, null);
     
     var cell2 = row.insertCell(1);
     cell2.appendChild(element2);
@@ -187,12 +155,29 @@ optionl.value = "55";
     cell2.appendChild(element3);
     
     var cell3 = row.insertCell(2);
-    cell3.appendChild(element2);
-    cell3.appendChild(text);
-    cell3.appendChild(element3);
+    cell3.appendChild(element2.cloneNode(true));
+    cell3.appendChild(text.cloneNode(true));
+    cell3.appendChild(element3.cloneNode(true));
     
+    var cell4 = row.insertCell(3);
+    var radioHtml = '<input type="radio" name="repeat' + table.rows.length + '" checked="checked" > Yes <input type="radio" name="repeat' + table.rows.length + '"> No';
+    var radioDivHtml = document.createElement("div");
+    radioDivHtml.innerHTML = radioHtml;
+    cell4.appendChild(radioDivHtml);
+    
+    var cell5 = row.insertCell(4);
+	var chkBoxHtml1 = '<INPUT TYPE="Checkbox" VALUE="Sunday" onClick=""> Sun ';
+	var chkBoxHtml2 = '<INPUT TYPE="Checkbox" VALUE="Monday" onClick=""> Mon ';
+	var chkBoxHtml3 = '<INPUT TYPE="Checkbox" VALUE="Tuesday" onClick=""> Tue ';
+	var chkBoxHtml4 = '<INPUT TYPE="Checkbox" VALUE="Wednesday" onClick=""> Wed ';
+	var chkBoxHtml5 = '<INPUT TYPE="Checkbox" VALUE="Thursday" onClick=""> Thu ';
+	var chkBoxHtml6 = '<INPUT TYPE="Checkbox" VALUE="Friday" onClick=""> Fri ';
+	var chkBoxHtml7 = '<INPUT TYPE="Checkbox" VALUE="Saturday" onClick=""> Sat ';
+	var chkBoxDivHtml = document.createElement("div");
+	chkBoxDivHtml.innerHTML = chkBoxHtml1 + chkBoxHtml2 + chkBoxHtml3 + chkBoxHtml4 + chkBoxHtml5 + chkBoxHtml6 + chkBoxHtml7;
+	cell5.appendChild(chkBoxDivHtml);
 }
-</script
+</script>
 </head>
 
 <body>
@@ -246,8 +231,8 @@ optionl.value = "55";
 				<td><b>Event Name</b></td>
 				<td><b>Start Time</b></td>
 				<td><b>End Time</b></td>
-				<td><b>Repeating Event?</b></td> <%//2 radio buttons - 1) One time only 2) Recurring Event%>
-				<td><b>Days it Repeats on</b></td> <%//7 checkboxes - Su,M,T,W,Th,F,S%>
+				<td><b>Weekly Repeating Event?</b></td> <%//2 radio buttons - 1) One time only 2) Recurring Event%>
+				<td><b>Days It Repeats On</b></td> <%//7 checkboxes - Su,M,T,W,Th,F,S%>
 			<tr>
 				<td><input type="text" name="eventName"></td>
 				<td><select name="startTimeHours">
@@ -275,19 +260,11 @@ optionl.value = "55";
 					<option value="21">21</option>
 					<option value="22">22</option>
 					<option value="23">23</option>
-					</select>:<select name="startTimeMinutes">
+					</select> : <select name="startTimeMinutes">
 								<option value="00">00</option>
-								<option value="05">05</option>
-								<option value="10">10</option>
 								<option value="15">15</option>
-								<option value="20">20</option>
-								<option value="25">25</option>
 								<option value="30">30</option>
-								<option value="35">35</option>
-								<option value="40">40</option>
 								<option value="45">45</option>
-								<option value="50">50</option>
-								<option value="55">55</option>
 							  </select></td>
 							  <td><select name="endTimeHours">
 					<option value="00">00</option>
@@ -314,22 +291,23 @@ optionl.value = "55";
 					<option value="21">21</option>
 					<option value="22">22</option>
 					<option value="23">23</option>
-					</select>:<select name="endTimeMinutes">
+					</select> : <select name="endTimeMinutes">
 								<option value="00">00</option>
-								<option value="05">05</option>
-								<option value="10">10</option>
 								<option value="15">15</option>
-								<option value="20">20</option>
-								<option value="25">25</option>
 								<option value="30">30</option>
-								<option value="35">35</option>
-								<option value="40">40</option>
 								<option value="45">45</option>
-								<option value="50">50</option>
-								<option value="55">55</option>
 							  </select></td>
-					<td></td>
-					<td></td>
+							  
+					<TD><INPUT TYPE="radio" NAME="Repeat" VALUE="Yes" onClick=""  CHECKED> Yes
+  					<INPUT TYPE="radio" NAME="Repeat" VALUE="No" onClick="" > No</TD>
+  					
+					<TD><INPUT TYPE="Checkbox" VALUE="Sunday" onClick=""> Sun   
+					<INPUT TYPE="Checkbox" VALUE="Monday" onClick=""> Mon   
+  					<INPUT TYPE="Checkbox" VALUE="Tuesday" onClick=""> Tue   
+				  	<INPUT TYPE="Checkbox" VALUE="Wednesday" onClick=""> Wed   
+				  	<INPUT TYPE="Checkbox" VALUE="Thursday" onClick=""> Thu   
+				  	<INPUT TYPE="Checkbox" VALUE="Friday" onClick=""> Fri   
+				  	<INPUT TYPE="Checkbox" VALUE="Saturday" onClick=""> Sat</TD>
 			</tr>
 		</table>
 		<button onClick="myCreateFunction()">Add Another Event</button>
