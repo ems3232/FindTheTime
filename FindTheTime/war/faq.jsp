@@ -94,7 +94,7 @@
 		<p>Yes.</p>
 		</br>
 		<h3>How does it know when I'm free to work with my group?</h3>
-		<p>The application will request you to input all the times you have a conflict and then search through all members’ schedules and find time slots that all members can meet.</p>
+		<p>The application will request you to input all the times you have a conflict and then search through all members' schedules and find time slots that all members can meet.</p>
 		</br>
 		<h3>Will I have to put my schedule in every week?</h3>
 		<p>No. You can set an event as a recurring conflict and it will carry over to the next week. However, if you have a one time event, you will have to go back in and update your schedule.</p>

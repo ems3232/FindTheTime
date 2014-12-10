@@ -66,7 +66,7 @@
 	<div id="content">
 		<h2>This is the My Groups Page.</h2>
 		
-		<table>
+		<table >
 			<tr>
 				<th>Group Name</th>
 				<th>Member 1</th>
