@@ -215,7 +215,6 @@ optionj.value = "45";
       <li><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/myAccount.jsp">My Account Settings</a></li>
       <li><a href="/myGroups.jsp">My Groups</a></li>
       <li class="active"><a href="/myCalendar.jsp">My Calendar</a></li>
       <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign Out</a></li>
@@ -311,6 +310,11 @@ optionj.value = "45";
 			</tr>
 		</table>
 		<button onClick="myCreateFunction()">Add Another Event</button>
+		</br></br>
+		<h3>Update Calendar!</h3>
+		<form action="/createCal" method="post">
+			<input type="submit" value="Update"> 
+		</form>
 		</br></br>
 		<p><a href="/myCalendar.jsp">Go Back</a> to the main My Calendar page.</p>
 	</div>

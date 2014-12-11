@@ -56,7 +56,6 @@
       <li><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/myAccount.jsp">My Account Settings</a></li>
       <li><a href="/myGroups.jsp">My Groups</a></li>
       <li class="active"><a href="/myCalendar.jsp">My Calendar</a></li>
       <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign Out</a></li>
@@ -66,22 +65,42 @@
 	<div id="content">
 		<h2>This is the My Calendar Page.</h2>
 		
-		<form action="/addEvents.jsp">
-    		<input type="submit" value="Add Events to My Calendar">
-		</form>
-		</br>
-		</br>
-		<form action="/viewCalendar.jsp">
-    		<input type="submit" value="View & Delete Events in My Calendar">
-		</form>
-		</br>
-		</br>
-		</br>
-		</br>
-		<h3>Update Calendar!</h3>
-		<form action="/createCal" method="post">
-			<input type="submit" value="Update"> 
-		</form>
+		
+		
+		
+		
+		
+		<!-- NEEDS FIXIN: Only display add events to my calendar if member is in a group. Otherwise, tell user to join or create a group.
+		<%
+		Queue query = new Query("users", appKey);
+	        List<Entity> usersList = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5000));
+	        boolean found = false;
+	        Entity users = null;
+	        for(Entity e : usersList) {
+	        	if (e.getProperty("userEmail").toString().equalsIgnoreCase(user.getEmail())) {
+	        		found = true;
+	        		users = e;
+	        		break;
+	        	}
+	        	
+	        	if(found = true){ %>
+		        	<form action="/addEvents.jsp">
+	    				<input type="submit" value="Add Events to My Calendar">
+					</form>
+				<% }
+	        	else{ %>
+	        		<p><a href="/createGroup.jsp">Create</a> or <a href="/joinGroup.jsp">join</a> a group before viewing your calendar.</p>
+	        	<% }
+	        }
+	    %>
+		-->
+		
+		
+		
+		
+		
+		
+		
 	</div>
 	<%
 		} else {
