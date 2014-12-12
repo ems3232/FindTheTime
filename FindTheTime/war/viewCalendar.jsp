@@ -56,7 +56,6 @@
       <li><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/myAccount.jsp">My Account Settings</a></li>
       <li><a href="/myGroups.jsp">My Groups</a></li>
       <li class="active"><a href="/myCalendar.jsp">My Calendar</a></li>
       <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign Out</a></li>
@@ -66,7 +65,77 @@
 	<div id="content">
 		<h2>This is the View Calendar and Remove Events Page.</h2>
 		<p>Click <a href="/addEvents.jsp">here</a> if you need to add events to your calendar.</p>
+		</br></br>
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<-- NEEDS FIXIN: Display a calendar with all days of the week then for every event, write the start and end times on the corresponding day
+		<%
+		Queue query = new Query("users", appKey);
+	        List<Entity> usersList = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5000));
+	        boolean found = false;
+	        Entity users = null;
+	       for(Entry e : usersList) {
+	        	if (e.getProperty("userEmail").toString().equalsIgnoreCase(user.getEmail())) {
+	        		found = true;
+	        		users = e;
+	        		break;
+	        	}
+	        }
+	   //users is the entity
+	   String calendar=users.getProperty("calendar").toString();
+	   String[] eventList=calendar.split("&");
+	   String commaSeperated="";
+	   for(int i=0;i<eventList.length;i++){
+		   if(i+1==eventList.length){
+			commaSeperated=commaSeperated+eventList[i];   
+		   }
+		   else{
+		 commaSeperated="\""+eventList[i]+",";
+		   }
+		%>
+		-->
+		
+		
+		<table>
+		<tr>
+			<td>Event</td>
+			<td>Sunday</td>
+			<td>Monday</td>
+			<td>Tuesday</td>
+			<td>Wednesday</td>
+			<td>Thursday</td>
+			<td>Friday</td>
+			<td>Saturday</td>
+		</tr>
+		</table>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</br></br>
+		<div id="content">
+		<form action="/viewCalendar.jsp" method="post">
+			Event Name: <input type="text" name="eventName" required>
+			</br></br>
+			<input type="submit" value="Delete Event in My Calendar">
+		</form>
+		</div>
 		</br></br>
 		<p><a href="/myCalendar.jsp">Go Back</a> to the main My Calendar page.</p>
 	</div>

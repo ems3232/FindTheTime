@@ -55,7 +55,6 @@
       <li class="active"><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/myAccount.jsp">My Account Settings</a></li>
       <li><a href="/myGroups.jsp">My Groups</a></li>
       <li><a href="/myCalendar.jsp">My Calendar</a></li>
       <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign Out</a></li>
@@ -94,7 +93,7 @@
 		<p>Yes.</p>
 		</br>
 		<h3>How does it know when I'm free to work with my group?</h3>
-		<p>The application will request you to input all the times you have a conflict and then search through all members' schedules and find time slots that all members can meet.</p>
+		<p>The application will request you to input all the times you have a conflict and then search through the schedules of all members and find time slots that all members can meet.</p>
 		</br>
 		<h3>Will I have to put my schedule in every week?</h3>
 		<p>No. You can set an event as a recurring conflict and it will carry over to the next week. However, if you have a one time event, you will have to go back in and update your schedule.</p>
@@ -157,7 +156,7 @@
 		<p>Yes.</p>
 		</br>
 		<h3>How does it know when I'm free to work with my group?</h3>
-		<p>The application will request you to input all the times you have a conflict and then search through all members’ schedules and find time slots that all members can meet.</p>
+		<p>The application will request you to input all the times you have a conflict and then search through all membersï¿½ schedules and find time slots that all members can meet.</p>
 		</br>
 		<h3>Will I have to put my schedule in every week?</h3>
 		<p>No. You can set an event as a recurring conflict and it will carry over to the next week. However, if you have a one time event, you will have to go back in and update your schedule.</p>

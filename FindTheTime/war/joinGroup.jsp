@@ -55,7 +55,6 @@
       <li><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/myAccount.jsp">My Account Settings</a></li>
       <li><a href="/myGroups.jsp">My Groups</a></li>
       <li><a href="/myCalendar.jsp">My Calendar</a></li>
       <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign Out</a></li>

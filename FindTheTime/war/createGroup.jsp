@@ -55,7 +55,6 @@
       <li><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/myAccount.jsp">My Account Settings</a></li>
       <li><a href="/myGroups.jsp">My Groups</a></li>
       <li><a href="/myCalendar.jsp">My Calendar</a></li>
       <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign Out</a></li>
@@ -65,7 +64,7 @@
 	<div id="content">
 		<h3>Create a group below!</h3>
 		<form action="/createGroup" method="post">
-		Team Name: <input type="text" name="teamName"> 
+		Team Name: <input type="text" name="teamName" required> 
 		<br><br>
 		Team Members' Email Addresses<br>
 		Member 1: <input type="text" name="user1"><br>
