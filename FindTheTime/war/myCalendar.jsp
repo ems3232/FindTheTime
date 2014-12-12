@@ -70,10 +70,12 @@
 		
 		
 		
-		<!-- NEEDS FIXIN: Only display add events to my calendar if member is in a group. Otherwise, tell user to join or create a group.
-		<%
-		Queue query = new Query("users", appKey);
-	        List<Entity> usersList = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5000));
+		<%//NEEDS FIXIN: Only display add events to my calendar if member is in a group. Otherwise, tell user to join or create a group.
+		String appName = "default";
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+		Key appKey = KeyFactory.createKey("Time", appName);
+		Query queue = new Query("users", appKey);
+	        List<Entity> usersList = datastore.prepare(queue).asList(FetchOptions.Builder.withLimit(5000));
 	        boolean found = false;
 	        Entity users = null;
 	        for(Entity e : usersList) {
@@ -93,7 +95,6 @@
 	        	<% }
 	        }
 	    %>
-		-->
 		
 		
 		
