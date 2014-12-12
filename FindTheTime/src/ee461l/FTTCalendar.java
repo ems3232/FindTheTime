@@ -71,7 +71,7 @@ public class FTTCalendar{
 			 String[] eventList=userCal.split("&");
 			//System.out.println(eventList);
 			 for(int i=0; i<eventList.length;i++){
-				System.out.println("hello"+i+"   "+eventList[i]);
+			//	System.out.println("hello"+i+"   "+eventList[i]);
 				String[] event=eventList[i].split("_");
 				
 				//Get Starting Location Start Time
@@ -91,8 +91,8 @@ public class FTTCalendar{
 			
 				for(int j=4; j<event.length;j++){
 					
-					System.out.println("THIS IS IMPortant"+"  "+event[j]+"  "+ j+"  "+ eventList[i]+"   ");
-			        System.out.println(event[j]);
+				//	System.out.println("THIS IS IMPortant"+"  "+event[j]+"  "+ j+"  "+ eventList[i]+"   ");
+			    //    System.out.println(event[j]);
 			         
 				    if (event[j].equalsIgnoreCase("mon")){
 			           for(int y=96+placeStart;y<(96+placeStart+(placeEnd-placeStart));y++){

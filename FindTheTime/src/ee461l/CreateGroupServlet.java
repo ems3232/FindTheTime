@@ -56,6 +56,22 @@ public class CreateGroupServlet extends HttpServlet {
             		"Please Join this group"+"\n"+"just type in -"+
             		teamName+"-\nIn the correct Field";
           //  Date date = new Date();
+            Query query2 = new Query("group", timeKey);
+            List<Entity> groups = datastore.prepare(query2).asList(FetchOptions.Builder.withLimit(5000));
+            boolean founded=false;
+            Entity teamEntity = null;
+            for (Entity e : groups) {
+            	if (e.getProperty("teamName").toString().equals(teamName)) {
+            		teamEntity = e;
+            		founded=true;
+            		break;
+            	}
+            }
+            	if(founded){
+        			resp.sendRedirect("/FindTheTime.jsp?blogName=" + !founded);
+            	}
+
+            	else{	
             Entity group = new Entity("group", timeKey);
             group.setProperty("teamName", teamName);
             group.setProperty("user0", user0);
@@ -86,7 +102,7 @@ public class CreateGroupServlet extends HttpServlet {
             }
             else{
             	group.setProperty("user1Flag",false);
-            	group.setProperty("user1","INVALID");
+            	group.setProperty("user1","N/A");
             	count=count+1;
             	failures=failures + user1+"\n";        	
             }
@@ -98,7 +114,7 @@ public class CreateGroupServlet extends HttpServlet {
                 }
                 else{
                 	group.setProperty("user2Flag",false);
-                	group.setProperty("user2","INVALID");
+                	group.setProperty("user2","N/A");
                 	count=count+1;
                 	failures=failures + user1+"\n";        	
                 }  
@@ -111,7 +127,7 @@ public class CreateGroupServlet extends HttpServlet {
                 else{
                 	group.setProperty("user3Flag",false);
                 	count=count+1;
-                	group.setProperty("user3","INVALID");
+                	group.setProperty("user3","N/A");
                 	failures=failures + user3+"\n";        	
                 }  
             if (isValidEmailAddress(user4)){
@@ -122,7 +138,7 @@ public class CreateGroupServlet extends HttpServlet {
                     }
                 else{
                 	group.setProperty("user4Flag",false);
-                	group.setProperty("user4","INVALID");
+                	group.setProperty("user4","N/A");
                 	count=count+1;
                 	failures=failures + user4+"\n";        	
                 }  
@@ -134,7 +150,7 @@ public class CreateGroupServlet extends HttpServlet {
                     }
                 else{
                 	 group.setProperty("user5Flag",false);
-                	 group.setProperty("user5","INVALID");
+                	 group.setProperty("user5","N/A");
                 	 count=count+1;
                 	failures=failures + user5+"\n";        	
                 }
@@ -151,7 +167,8 @@ public class CreateGroupServlet extends HttpServlet {
              else{
           resp.sendRedirect("/FindTheTime.jsp?blogName=" + failures);
          return;}
-    }    
+    } 
+	}
     public static boolean isValidEmailAddress(String email) {
     	   boolean result = true;
     	   try {
@@ -186,7 +203,7 @@ public void sendEmail(String strCallResult,String userPerson){
 		newUserEntity.setProperty("group2", null);
 		newUserEntity.setProperty("group3", null);
 		newUserEntity.setProperty("group4", null);	
-		newUserEntity.setProperty("calendar","false");
+		newUserEntity.setProperty("calendar","false8");
 		return newUserEntity;
 	}
    private Entity addGroup(Entity user,String teamName,HttpServletResponse resp){

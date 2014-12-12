@@ -37,14 +37,20 @@ public class CreateCalendarServlet extends HttpServlet{
         Query query = new Query("users", appKey);
         List<Entity> usersList = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5000));
         Entity users=null;
+        String cal="";
+        String event="";
         for(Entity e : usersList) {
          	if (e.getProperty("userEmail").toString().equalsIgnoreCase(user.getEmail())) {
          		users = e;
          		break;
          	}
          }
-        String cal="";
-        String event="";
+        if(!users.getProperty("calendar").toString().equals("false")){
+        	cal=users.getProperty("calendar").toString()+"&";
+        	users.setProperty("calendar",cal);
+        	datastore.put(users);
+        }
+      
         String sizeRow= req.getParameter("rowNumber");
         int rowSize=Integer.parseInt(sizeRow);
         for(int i=1; i<=rowSize;i++){
@@ -111,9 +117,19 @@ public class CreateCalendarServlet extends HttpServlet{
       event=event+eventName+"_"+REOCCUR+"_"+startHour+":"+startMin+"_"+
        endHour+":"+endMin+"_"+days;
         }
-        users.setProperty("calendar",event);
-        datastore.put(users);
         
+        if(users.getProperty("calendar").toString().equals("false"))
+        {
+        	users.setProperty("calendar", event);
+        	datastore.put(users);
+        }
+        else{
+        String oldCalendar=users.getProperty("calendar").toString();
+        oldCalendar=oldCalendar+event;
+    
+        users.setProperty("calendar",oldCalendar);
+        datastore.put(users);
+        }
         resp.sendRedirect("/FindTheTime.jsp?blogName=");
 	}
 	 

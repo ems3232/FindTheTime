@@ -88,111 +88,104 @@
 	        	}
 	        }
 	   //users is the entity
-	   String calendar=users.getProperty("calendar").toString();
-	   String[] eventList=calendar.split("&");
-	   String commaSeperated="";
-	   for(int i = 0; i < eventList.length; i++){
-		   if(i+1==eventList.length){
-			commaSeperated=commaSeperated+eventList[i];   
-		   }
-		   else{
-		    commaSeperated=eventList[i]+",";
-		   }
-	   } //results in list of events
-	   //events look like: EventName1_Repeating?_00:00(start)_00:00(end)_day1_..._day7&EventName2...
-	   
-	   
-		%>
-		
-		
-		<table>
-		<tr>
-			<th>Event</th>
-			<th>Sunday</th>
-			<th>Monday</th>
-			<th>Tuesday</th>
-			<th>Wednesday</th>
-			<th>Thursday</th>
-			<th>Friday</th>
-			<th>Saturday</th>
-		</tr>
-		<%//create a new row for the first event in the list.
-		//Need to know the name, times and which days
-		String name;
-		String start;
-		String end;
-		ArrayList<String> days = new ArrayList<String>();
-		String[] events = commaSeperated.split(",");
-		for(String s : events){ // s should look like: EventName1_Repeating?_00:00(start)_00:00(end)_day1_..._day7
-			String[] eventPieces = s.split("_");
-			name = eventPieces[0];
-			start = eventPieces[2];
-			end = eventPieces[3];
-			for(int i = 4; i < eventPieces.length; i++){
-				days.add(eventPieces[i]);
+	   if(found) {
+	   	   if(users.getProperty("calendar") == null){
+	   	   		%><p>You have no events in your calendar. Please go and <a href="/addEvents.jsp">add events</a>.</p><%
+	   	   } else {                                     
+		   String calendar=users.getProperty("calendar").toString();
+		   String[] eventList=calendar.split("&");
+		   String commaSeperated="";
+		   for(int i = 0; i < eventList.length; i++){
+			   if(i+1==eventList.length){
+				commaSeperated=commaSeperated+eventList[i];   
+			   }
+			   else{
+			    commaSeperated=eventList[i]+",";
+			   }
+		   } //results in list of events
+		   //events look like: EventName1_Repeating?_00:00(start)_00:00(end)_day1_..._day7&EventName2...
+			%>
+			<table>
+				<tr>
+					<th>Event</th>
+					<th>Sunday</th>
+					<th>Monday</th>
+					<th>Tuesday</th>
+					<th>Wednesday</th>
+					<th>Thursday</th>
+					<th>Friday</th>
+					<th>Saturday</th>
+				</tr>
+			<%//create a new row for the first event in the list.
+			//Need to know the name, times and which days
+			String name;
+			String start;
+			String end;
+			ArrayList<String> days = new ArrayList<String>();
+			String[] events = commaSeperated.split(",");
+			for(String s : events){ // s should look like: EventName1_Repeating?_00:00(start)_00:00(end)_day1_..._day7
+				String[] eventPieces = s.split("_");
+				name = eventPieces[0];
+				start = eventPieces[2];
+				end = eventPieces[3];
+				for(int i = 4; i < eventPieces.length; i++){
+					days.add(eventPieces[i]);
+				}
+			%>
+				<tr>
+					<td><%out.print(name);%></td>
+					<td><%
+						int counter = 0;
+						if(days.get(counter).equals("sun") && counter < days.size()){
+							out.print(start+"-"+end);
+							counter++;
+						}
+					%></td>
+					<td><%
+						if(days.get(counter).equals("mon") && counter < days.size()){
+							out.print(start+"-"+end);
+							counter++;
+						}
+					%></td>
+					<td><%
+						if(days.get(counter).equals("tue") && counter < days.size()){
+							out.print(start+"-"+end);
+							counter++;
+						}
+					%></td>
+					<td><%
+						if(days.get(counter).equals("wed") && counter < days.size()){
+							out.print(start+"-"+end);
+							counter++;
+						}
+					%></td>
+					<td><%
+						if(days.get(counter).equals("thu") && counter < days.size()){
+							out.print(start+"-"+end);
+							counter++;
+						}
+					%></td>
+					<td><%
+						if(days.get(counter).equals("fri") && counter < days.size()){
+							out.print(start+"-"+end);
+							counter++;
+						}
+					%></td>
+					<td><%
+						if(days.get(counter).equals("sat") && counter < days.size()){
+							out.print(start+"-"+end);
+							counter++;
+						}
+					%></td>
+				</tr>
+			<%
 			}
-		%>
-			<tr>
-				<td><%out.print(name);%></td>
-				<td><%
-					int counter = 0;
-					if(days.get(counter).equals("sun") && counter < days.size()){
-						out.print(start+"-"+end);
-						counter++;
-					}
-				%></td>
-				<td><%
-					if(days.get(counter).equals("mon") && counter < days.size()){
-						out.print(start+"-"+end);
-						counter++;
-					}
-				%></td>
-				<td><%
-					if(days.get(counter).equals("tue") && counter < days.size()){
-						out.print(start+"-"+end);
-						counter++;
-					}
-				%></td>
-				<td><%
-					if(days.get(counter).equals("wed") && counter < days.size()){
-						out.print(start+"-"+end);
-						counter++;
-					}
-				%></td>
-				<td><%
-					if(days.get(counter).equals("thu") && counter < days.size()){
-						out.print(start+"-"+end);
-						counter++;
-					}
-				%></td>
-				<td><%
-					if(days.get(counter).equals("fri") && counter < days.size()){
-						out.print(start+"-"+end);
-						counter++;
-					}
-				%></td>
-				<td><%
-					if(days.get(counter).equals("sat") && counter < days.size()){
-						out.print(start+"-"+end);
-						counter++;
-					}
-				%></td>
-			</tr>
+			%>
+					
+			</table>
 		<%
-		}
-		%>
-				
-		</table>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			}
+		}	%>
 		
 		</br></br>
 		<div id="content">

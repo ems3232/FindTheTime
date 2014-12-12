@@ -79,7 +79,7 @@
 				System.out.println("user isn't in any groups");
 			%>
 					<!-- HTML for logged-in user that has an account, but is not apart of a group.  Something along the lines of "You are not in any groups. go join one!" -->
-					<p>You are not in any groups.  Go create or join one!</p>
+					
 					
 			<%
 				} 
@@ -103,19 +103,19 @@
 						else if (userGroup2 != null && e.getProperty("teamName").toString().equals(userGroup2)) {
 							userGroupEntity2 = e;
 							if (e.getProperty("user0").toString().equalsIgnoreCase(userEntity.getProperty("userEmail").toString())) {
-							isGroup1Leader = true;
+							isGroup2Leader = true;
 							}
 						}
 						else if (userGroup3 != null && e.getProperty("teamName").toString().equals(userGroup3)) {
 							userGroupEntity3 = e;
 							if (e.getProperty("user0").toString().equalsIgnoreCase(userEntity.getProperty("userEmail").toString())) {
-							isGroup1Leader = true;
+							isGroup3Leader = true;
 							}
 						}
 						else if (userGroup4 != null && e.getProperty("teamName").toString().equals(userGroup4)) {
 							userGroupEntity4 = e;
 							if (e.getProperty("user0").toString().equalsIgnoreCase(userEntity.getProperty("userEmail").toString())) {
-							isGroup1Leader = true;
+							isGroup4Leader = true;
 							}
 						}
 					}
@@ -255,7 +255,8 @@
 				<td>
 					<form action="leaveGroup" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="hidden" name="kickMember" value="<%= user.getEmail() %>"/>
+						<input type="submit" value="Leave Group"/>
 					</form> 
 				</td>
 			</tr>
@@ -355,7 +356,8 @@
 				<td>
 					<form action="leaveGroup" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="hidden" name="kickMember" value="<%= user.getEmail() %>"/>
+						<input type="submit" value="Leave Group"/>
 					</form> 
 				</td>
 			</tr>
@@ -455,7 +457,8 @@
 				<td>
 					<form action="leaveGroup" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="hidden" name="kickMember" value="<%= user.getEmail() %>"/>
+						<input type="submit" value="Leave Group"/>
 					</form> 
 				</td>
 			</tr>
@@ -555,7 +558,8 @@
 				<td>
 					<form action="leaveGroup" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="hidden" name="kickMember" value="<%= user.getEmail() %>"/>
+						<input type="submit" value="Leave Group"/>
 					</form> 
 				</td>
 			</tr>
@@ -564,7 +568,7 @@
 			%>
 		</table>
 		</div>
-			<%
+			<%	
 				}
 				}
 				}	

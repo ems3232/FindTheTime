@@ -54,7 +54,7 @@
 	
 		  <servlet>
 		  <servlet-name>leaveGroup</servlet-name>
-		  <servlet-class>ee461l.joinGroupServlet</servlet-class>
+		  <servlet-class>ee461l.LeaderKickServlet</servlet-class>
 	      </servlet>
 	      <servlet-mapping>
 		  <servlet-name>leaveGroup</servlet-name>
