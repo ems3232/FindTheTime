@@ -43,6 +43,7 @@ public class CreateGroupServlet extends HttpServlet {
         String guestBookName ="default";
         String strCallResult="";
         int count=0;
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         String failures="This email was not valid\n";
         Key timeKey = KeyFactory.createKey("Time", guestBookName);
             String teamName = req.getParameter("teamName");   
@@ -59,61 +60,88 @@ public class CreateGroupServlet extends HttpServlet {
             group.setProperty("teamName", teamName);
             group.setProperty("user0", user0);
             group.setProperty("user0Flag", true);
-            group.setProperty("Cal0Flag", false);
-            sendEmail(strCallResult, user0);
-            Entity users =createUser(user,timeKey,teamName);
+           // group.setProperty("Cal0Flag", false);
+           // sendEmail(strCallResult, user0);
+           Entity users = null;
             
+            Query query = new Query("users", timeKey);
+            List<Entity> usersList = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5000));
+           boolean found=false;
+            for(Entity e : usersList) {
+            	if (e.getProperty("userEmail").toString().equalsIgnoreCase(user.getEmail())) {
+            		found = true;
+            		users = e;
+            		users=addGroup(users,teamName,resp);
+            		break;
+            	}
+            }
+            if(!found){
+            	  users =createUser(user,timeKey,teamName);
+            }
             if (isValidEmailAddress(user1)){
             group.setProperty("user1", user1);
             group.setProperty("user1Flag",false);
-            group.setProperty("Cal1Flag", false);
-            sendEmail(strCallResult, user1);
+         //   group.setProperty("Cal1Flag", false);
+         //   sendEmail(strCallResult, user1);
             }
             else{
+            	group.setProperty("user1Flag",false);
+            	group.setProperty("user1","INVALID");
             	count=count+1;
             	failures=failures + user1+"\n";        	
             }
             if (isValidEmailAddress(user2)){
                 group.setProperty("user2", user2);
                 group.setProperty("user2Flag",false);
-                group.setProperty("Cal2Flag", false);
-             sendEmail(strCallResult, user2);
+              //  group.setProperty("Cal2Flag", false);
+             //sendEmail(strCallResult, user2);
                 }
                 else{
+                	group.setProperty("user2Flag",false);
+                	group.setProperty("user2","INVALID");
                 	count=count+1;
                 	failures=failures + user1+"\n";        	
                 }  
             if (isValidEmailAddress(user3)){
                     group.setProperty("user3", user3);
                     group.setProperty("user3Flag",false);
-                    group.setProperty("Cal3Flag", false);
-                  sendEmail(strCallResult, user3);
+                 //   group.setProperty("Cal3Flag", false);
+               //   sendEmail(strCallResult, user3);
                     }
                 else{
+                	group.setProperty("user3Flag",false);
                 	count=count+1;
+                	group.setProperty("user3","INVALID");
                 	failures=failures + user3+"\n";        	
                 }  
             if (isValidEmailAddress(user4)){
                     group.setProperty("user4", user4);
                     group.setProperty("user4Flag",false);
-                    group.setProperty("Cal4Flag", false);
-                   sendEmail(strCallResult, user4);
+               //     group.setProperty("Cal4Flag", false);
+                 //  sendEmail(strCallResult, user4);
                     }
                 else{
+                	group.setProperty("user4Flag",false);
+                	group.setProperty("user4","INVALID");
                 	count=count+1;
                 	failures=failures + user4+"\n";        	
                 }  
             if (isValidEmailAddress(user5)){
                     group.setProperty("user5", user5);
                     group.setProperty("user5Flag",false);
-                    group.setProperty("Cal5Flag", false);
-                 sendEmail(strCallResult, user5);
+             //       group.setProperty("Cal5Flag", false);
+                 //sendEmail(strCallResult, user5);
                     }
                 else{
-                	count=count+1;
+                	 group.setProperty("user5Flag",false);
+                	 group.setProperty("user5","INVALID");
+                	 count=count+1;
                 	failures=failures + user5+"\n";        	
                 }
-         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+//meetingTime ="String Event"
+//startTime int 
+//endTime   int
+//meetingLength   int in minutes
          datastore.put(users);
          datastore.put(group);
      
@@ -157,9 +185,31 @@ public void sendEmail(String strCallResult,String userPerson){
 		newUserEntity.setProperty("group1", teamName);
 		newUserEntity.setProperty("group2", null);
 		newUserEntity.setProperty("group3", null);
-		newUserEntity.setProperty("group4", null);		
+		newUserEntity.setProperty("group4", null);	
+		newUserEntity.setProperty("calendar","false");
 		return newUserEntity;
 	}
+   private Entity addGroup(Entity user,String teamName,HttpServletResponse resp){
+	   boolean work=false;
+	   for (Integer i = 1; i <= 4; i++) {
+       	if(user.getProperty("group" + i.toString()) !=null) {}
+       	else {
+       		user.setProperty("group" + i.toString(), teamName);
+       		work=true;
+       		break;
+       	}
+       }
+	   if(!work){
+		   try {
+			resp.sendRedirect("/FindTheTime.jsp?blogName=" + work);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   }
+	   
+	   return user;
+   }
     
 }
 

@@ -12,6 +12,7 @@ import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
  
@@ -25,29 +26,95 @@ import javax.servlet.http.HttpServletResponse;
 
 public class CreateCalendarServlet extends HttpServlet{
 	
-	
-	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+
+		
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException{
 		UserService userService = UserServiceFactory.getUserService();
 		User user = userService.getCurrentUser();
 		String appName = "default";
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         Key appKey = KeyFactory.createKey("Time", appName);
-        Query query = new Query("group", appKey);
-        List<Entity> groups = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5000));
-        
-     
-        for (Entity e : groups) {
-        	for (Integer i = 0; i <= 5; i++) {
-            	if (e.getProperty("user" + i.toString())!=null){
-        		if (e.getProperty("user" + i.toString()).toString().equalsIgnoreCase(user.getEmail())) {
-            		e.setProperty("Cal" + i.toString() + "Flag", true);
-            		datastore.put(e);
-            		break;
-            	}
-            }
+        Query query = new Query("users", appKey);
+        List<Entity> usersList = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5000));
+        Entity users=null;
+        for(Entity e : usersList) {
+         	if (e.getProperty("userEmail").toString().equalsIgnoreCase(user.getEmail())) {
+         		users = e;
+         		break;
+         	}
+         }
+        String cal="";
+        String event="";
+        String sizeRow= req.getParameter("rowNumber");
+        int rowSize=Integer.parseInt(sizeRow);
+        for(int i=1; i<=rowSize;i++){
+        	String name="Event"+i+"Name";
+        	String eventName= req.getParameter(name);
+        	
+        	String srtHour="Event"+i+"StartHour";
+        	String startHour= req.getParameter(srtHour);
+        	
+        	String srtMin="Event"+i+"StartMin";
+        	String startMin= req.getParameter(srtMin);
+        	
+        	String edHour="Event"+i+"EndHour";
+        	String endHour= req.getParameter(edHour);
+        	
+        	String edMin="Event"+i+"EndMin";
+        	String endMin= req.getParameter(edMin);
+        	
+        	String reOccur="Event"+i+"Reoccur";
+        	String REOCCUR= req.getParameter(reOccur);
+        	
+        	ArrayList<String> dayValues=new ArrayList<String>();
+        	String day0="Event"+i+"Sun";
+        	String sun= req.getParameter(day0);
+        	if(sun !=null){dayValues.add("sun");}
+        	
+        	String day1="Event"+i+"Mon";
+        	String mon= req.getParameter(day1);
+        	if(mon !=null){dayValues.add("mon");}
+
+        	String day2="Event"+i+"Tue";
+        	String tue= req.getParameter(day2);
+        	if(tue !=null){dayValues.add("tue");}
+
+        	String day3="Event"+i+"Wed";
+        	String wed= req.getParameter(day3);
+        	if(wed !=null){dayValues.add("wed");}
+
+        	String day4="Event"+i+"Thu";
+        	String thu= req.getParameter(day4);
+        	if(thu !=null){dayValues.add("thu");}
+
+        	String day5="Event"+i+"Fri";
+        	String fri= req.getParameter(day5);
+        	if(fri !=null){dayValues.add("fri");}
+
+        	String day6="Event"+i+"Sat";
+        	String sat= req.getParameter(day6);
+        	if(sat !=null){dayValues.add("sat");}
+        	
+        	String days="";
+        	for(int j=0;j<dayValues.size();j++)
+        	{
+        	if((j+1==dayValues.size()) && (i==rowSize))
+        		{days=days+dayValues.get(j);}
+        	
+        	else if(j+1==dayValues.size())
+       	     	{days=days+dayValues.get(j)+"&";}
+  
+        	else
+        	{days=days+dayValues.get(j)+"_";}
         	}
+        	
+      event=event+eventName+"_"+REOCCUR+"_"+startHour+":"+startMin+"_"+
+       endHour+":"+endMin+"_"+days;
         }
-       
-        resp.sendRedirect("/FindTheTime.jsp");
-}
+        users.setProperty("calendar",event);
+        datastore.put(users);
+        
+        resp.sendRedirect("/FindTheTime.jsp?blogName=");
+	}
+	 
 }

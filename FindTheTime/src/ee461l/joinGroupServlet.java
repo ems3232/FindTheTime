@@ -59,16 +59,20 @@ public class joinGroupServlet extends HttpServlet {
         
         query = new Query("group", appKey);
         List<Entity> groups = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5000));
-        
+        boolean founded=false;
         Entity teamEntity = null;
         for (Entity e : groups) {
         	if (e.getProperty("teamName").toString().equals(teamName)) {
         		teamEntity = e;
+        		founded=true;
         		break;
         	}
         }
      
-   
+   if(!founded){
+	   //fuck yourself
+	   resp.sendRedirect("/joinGroup.jsp?blogName=" + founded);
+   }
         //add user to group
         for (Integer i = 1; i <= 5; i++) {
         	if (teamEntity.getProperty("user" + i.toString()).toString().equalsIgnoreCase(user.getEmail())) {
@@ -97,7 +101,8 @@ public class joinGroupServlet extends HttpServlet {
 		newUserEntity.setProperty("group1", null);
 		newUserEntity.setProperty("group2", null);
 		newUserEntity.setProperty("group3", null);
-		newUserEntity.setProperty("group4", null);		
+		newUserEntity.setProperty("group4", null);	
+		newUserEntity.setProperty("calendar","false");
 		return newUserEntity;
 	}
 	

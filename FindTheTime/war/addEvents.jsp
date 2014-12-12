@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+�ｿ<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ page import="java.util.List"%>
 <%@ page import="com.google.appengine.api.users.User"%>
 <%@ page import="com.google.appengine.api.users.UserService"%>
@@ -24,11 +24,12 @@ function myCreateFunction() {
     var table = document.getElementById("addEventTable");
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
+	document.getElementById("rowNumber").value = rowCount;
     
     var cell1 = row.insertCell(0);
     var element1 = document.createElement("input");
     element1.type = "text";
-    element1.name = "eventName";
+    element1.name = "Event" + rowCount + "Name";
     cell1.appendChild(element1);
     
 var option0 = document.createElement("option");
@@ -117,6 +118,7 @@ optionj.innerHTML = "45";
 optionj.value = "45";
 
     var element2 = document.createElement("select");
+    element2.name = "Event" + rowCount + "StartHour";
     element2.add(option0, null);
     element2.add(option1, null);
     element2.add(option2, null);
@@ -144,6 +146,7 @@ optionj.value = "45";
  
     var text = document.createTextNode(' : ');
     var element3 = document.createElement("select");
+    element3.name = "Event" + rowCount + "StartMin";
     element3.add(optiona, null);
     element3.add(optiond, null);
     element3.add(optiong, null);
@@ -155,24 +158,28 @@ optionj.value = "45";
     cell2.appendChild(element3);
     
     var cell3 = row.insertCell(2);
-    cell3.appendChild(element2.cloneNode(true));
+	var temp2 = element2.cloneNode(true);
+	temp2.name = "Event" + rowCount + "EndHour";
+	var temp3 = element3.cloneNode(true);
+	temp3.name = "Event" + rowCount + "EndMin";
+    cell3.appendChild(temp2);
     cell3.appendChild(text.cloneNode(true));
-    cell3.appendChild(element3.cloneNode(true));
+    cell3.appendChild(temp3);
     
     var cell4 = row.insertCell(3);
-    var radioHtml = '<input type="radio" name="repeat' + table.rows.length + '" checked="checked" > Yes <input type="radio" name="repeat' + table.rows.length + '"> No';
+    var radioHtml = '<input type="radio" name="Event' + rowCount + 'Reoccur" checked="checked" > Yes <input type="radio" name="Event' + rowCount + 'Reoccur"> No';
     var radioDivHtml = document.createElement("div");
     radioDivHtml.innerHTML = radioHtml;
     cell4.appendChild(radioDivHtml);
     
     var cell5 = row.insertCell(4);
-	var chkBoxHtml1 = '<INPUT TYPE="Checkbox" VALUE="Sunday" onClick=""> Sun ';
-	var chkBoxHtml2 = '<INPUT TYPE="Checkbox" VALUE="Monday" onClick=""> Mon ';
-	var chkBoxHtml3 = '<INPUT TYPE="Checkbox" VALUE="Tuesday" onClick=""> Tue ';
-	var chkBoxHtml4 = '<INPUT TYPE="Checkbox" VALUE="Wednesday" onClick=""> Wed ';
-	var chkBoxHtml5 = '<INPUT TYPE="Checkbox" VALUE="Thursday" onClick=""> Thu ';
-	var chkBoxHtml6 = '<INPUT TYPE="Checkbox" VALUE="Friday" onClick=""> Fri ';
-	var chkBoxHtml7 = '<INPUT TYPE="Checkbox" VALUE="Saturday" onClick=""> Sat ';
+	var chkBoxHtml1 = '<INPUT TYPE="Checkbox" VALUE="sun" NAME="Event' + rowCount + 'Sun" onClick=""> Sun ';
+	var chkBoxHtml2 = '<INPUT TYPE="Checkbox" VALUE="mon" NAME="Event' + rowCount + 'Mon" onClick=""> Mon ';
+	var chkBoxHtml3 = '<INPUT TYPE="Checkbox" VALUE="tue" NAME="Event' + rowCount + 'Tue" onClick=""> Tue ';
+	var chkBoxHtml4 = '<INPUT TYPE="Checkbox" VALUE="wed" NAME="Event' + rowCount + 'Wed" onClick=""> Wed ';
+	var chkBoxHtml5 = '<INPUT TYPE="Checkbox" VALUE="thu" NAME="Event' + rowCount + 'Thu" onClick=""> Thu ';
+	var chkBoxHtml6 = '<INPUT TYPE="Checkbox" VALUE="fri" NAME="Event' + rowCount + 'Fri" onClick=""> Fri ';
+	var chkBoxHtml7 = '<INPUT TYPE="Checkbox" VALUE="sat" NAME="Event' + rowCount + 'Sat" onClick=""> Sat ';
 	var chkBoxDivHtml = document.createElement("div");
 	chkBoxDivHtml.innerHTML = chkBoxHtml1 + chkBoxHtml2 + chkBoxHtml3 + chkBoxHtml4 + chkBoxHtml5 + chkBoxHtml6 + chkBoxHtml7;
 	cell5.appendChild(chkBoxDivHtml);
@@ -215,7 +222,6 @@ optionj.value = "45";
       <li><a href="/faq.jsp">FAQs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/myAccount.jsp">My Account Settings</a></li>
       <li><a href="/myGroups.jsp">My Groups</a></li>
       <li class="active"><a href="/myCalendar.jsp">My Calendar</a></li>
       <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign Out</a></li>
@@ -226,6 +232,9 @@ optionj.value = "45";
 		<h2>This is the Add Events to My Calendar Page.</h2>
 		<p>Click <a href="/viewCalendar.jsp">here</a> if you need to view your calendar or remove events.</p>
 		<%//The table needs to be put into a form!!!!%>
+		<button onClick="myCreateFunction()">Add Another Event</button><p id="testOut"></p>
+		<form action="createCal" method="post">
+		<input type="hidden" name="rowNumber" id="rowNumber" value="1"></input>
 		<table id="addEventTable">
 			<tr>
 				<td><b>Event Name</b></td>
@@ -234,8 +243,8 @@ optionj.value = "45";
 				<td><b>Weekly Repeating Event?</b></td> <%//2 radio buttons - 1) One time only 2) Recurring Event%>
 				<td><b>Days It Repeats On</b></td> <%//7 checkboxes - Su,M,T,W,Th,F,S%>
 			<tr>
-				<td><input type="text" name="eventName"></td>
-				<td><select name="startTimeHours">
+				<td><input type="text" name="Event1Name"></td>
+				<td><select name="Event1StartHour">
 					<option value="00">00</option>
 					<option value="01">01</option>
 					<option value="02">02</option>
@@ -260,13 +269,13 @@ optionj.value = "45";
 					<option value="21">21</option>
 					<option value="22">22</option>
 					<option value="23">23</option>
-					</select> : <select name="startTimeMinutes">
+					</select> : <select name="Event1StartMin">
 								<option value="00">00</option>
 								<option value="15">15</option>
 								<option value="30">30</option>
 								<option value="45">45</option>
-							  </select></td>
-							  <td><select name="endTimeHours">
+					</select></td>
+				<td><select name="Event1EndHour">
 					<option value="00">00</option>
 					<option value="01">01</option>
 					<option value="02">02</option>
@@ -291,26 +300,27 @@ optionj.value = "45";
 					<option value="21">21</option>
 					<option value="22">22</option>
 					<option value="23">23</option>
-					</select> : <select name="endTimeMinutes">
+					</select> : <select name="Event1EndMin">
 								<option value="00">00</option>
 								<option value="15">15</option>
 								<option value="30">30</option>
 								<option value="45">45</option>
-							  </select></td>
+					</select></td>
 							  
-					<TD><INPUT TYPE="radio" NAME="Repeat" VALUE="Yes" onClick=""  CHECKED> Yes
-  					<INPUT TYPE="radio" NAME="Repeat" VALUE="No" onClick="" > No</TD>
+					<TD><INPUT TYPE="radio" NAME="Event1Reoccur" VALUE="true" onClick=""  CHECKED> Yes
+  					<INPUT TYPE="radio" NAME="Event1Reoccur" VALUE="false" onClick="" > No</TD>
   					
-					<TD><INPUT TYPE="Checkbox" VALUE="Sunday" onClick=""> Sun   
-					<INPUT TYPE="Checkbox" VALUE="Monday" onClick=""> Mon   
-  					<INPUT TYPE="Checkbox" VALUE="Tuesday" onClick=""> Tue   
-				  	<INPUT TYPE="Checkbox" VALUE="Wednesday" onClick=""> Wed   
-				  	<INPUT TYPE="Checkbox" VALUE="Thursday" onClick=""> Thu   
-				  	<INPUT TYPE="Checkbox" VALUE="Friday" onClick=""> Fri   
-				  	<INPUT TYPE="Checkbox" VALUE="Saturday" onClick=""> Sat</TD>
+					<TD><INPUT TYPE="Checkbox" VALUE="sun" NAME="Event1Sun" onClick=""> Sun   
+					<INPUT TYPE="Checkbox" VALUE="mon" NAME="Event1Mon" onClick=""> Mon   
+  					<INPUT TYPE="Checkbox" VALUE="tue" NAME="Event1Tue" onClick=""> Tue   
+				  	<INPUT TYPE="Checkbox" VALUE="wed" NAME="Event1Wed" onClick=""> Wed   
+				  	<INPUT TYPE="Checkbox" VALUE="thu" NAME="Event1Thu" onClick=""> Thu   
+				  	<INPUT TYPE="Checkbox" VALUE="fri" NAME="Event1Fri" onClick=""> Fri   
+				  	<INPUT TYPE="Checkbox" VALUE="sat" NAME="Event1Sat" onClick=""> Sat</TD>
 			</tr>
 		</table>
-		<button onClick="myCreateFunction()">Add Another Event</button>
+		<input type="submit"/>
+		</form>
 		</br></br>
 		<p><a href="/myCalendar.jsp">Go Back</a> to the main My Calendar page.</p>
 	</div>

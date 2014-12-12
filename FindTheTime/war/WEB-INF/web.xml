@@ -6,42 +6,87 @@
          xmlns="http://java.sun.com/xml/ns/javaee">
 
   <!-- Servlets -->
-    <servlet>
-    <servlet-name>greetServlet</servlet-name>
+        <servlet>
+        <servlet-name>greetServlet</servlet-name>
         <servlet-class>ee461l.server.GreetingServiceImpl</servlet-class>
-    </servlet>
+        </servlet>
   
-    <servlet-mapping>
+        <servlet-mapping>
         <servlet-name>greetServlet</servlet-name>
         <url-pattern>/findthetime/greet</url-pattern>
-    </servlet-mapping>
+        </servlet-mapping>
  
-    <servlet>
+        <servlet>
 		<servlet-name>createGroup</servlet-name>
 		<servlet-class>ee461l.CreateGroupServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
+	    </servlet>
+	    <servlet-mapping>
 		<servlet-name>createGroup</servlet-name>
 		<url-pattern>/createGroup</url-pattern>
-	</servlet-mapping>
+     	</servlet-mapping>
   
-    <servlet>
+        <servlet>
 		<servlet-name>createAccount</servlet-name>
 		<servlet-class>ee461l.CreateAccountServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
+     	</servlet>
+	    <servlet-mapping>
 		<servlet-name>createAccount</servlet-name>
 		<url-pattern>/createAccount</url-pattern>
-	</servlet-mapping>
+	    </servlet-mapping>
 	
-	  <servlet>
+	    <servlet>
 		<servlet-name>joinGroup</servlet-name>
 		<servlet-class>ee461l.joinGroupServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
+	    </servlet>
+	    <servlet-mapping>
 		<servlet-name>joinGroup</servlet-name>
 		<url-pattern>/joinGroup</url-pattern>
-	</servlet-mapping>
+	    </servlet-mapping>
+	
+		  <servlet>
+		  <servlet-name>delegateLeader</servlet-name>
+		  <servlet-class>ee461l.LeaderDelegateServlet</servlet-class>
+          </servlet>
+	      <servlet-mapping>
+		  <servlet-name>delegateLeader</servlet-name>
+		  <url-pattern>/delegateLeader</url-pattern>
+	      </servlet-mapping>
+	
+		  <servlet>
+		  <servlet-name>leaveGroup</servlet-name>
+		  <servlet-class>ee461l.joinGroupServlet</servlet-class>
+	      </servlet>
+	      <servlet-mapping>
+		  <servlet-name>leaveGroup</servlet-name>
+		  <url-pattern>/leaveGroup</url-pattern>
+	      </servlet-mapping>
+	
+		  <servlet>
+		  <servlet-name>kickMember</servlet-name>
+		  <servlet-class>ee461l.LeaderKickServlet</servlet-class>
+	      </servlet>
+	      <servlet-mapping>
+	      <servlet-name>kickMember</servlet-name>
+		  <url-pattern>/kickMember</url-pattern>
+	      </servlet-mapping>
+	
+		  <servlet>
+		  <servlet-name>disbandGroup</servlet-name>
+		  <servlet-class>ee461l.LeaderDisbandServlet</servlet-class>
+	      </servlet>
+	      <servlet-mapping>
+		  <servlet-name>disbandGroup</servlet-name>
+		  <url-pattern>/disbandGroup</url-pattern>
+	      </servlet-mapping>
+	
+	    <servlet>
+		<servlet-name>runAlgorithm</servlet-name>
+		<servlet-class>ee461l.AlgorithmServlet</servlet-class>
+	    </servlet>
+	    <servlet-mapping>
+		<servlet-name>runAlgorithm</servlet-name>
+		<url-pattern>/runAlgorithm</url-pattern>
+	    </servlet-mapping>
 	
 	  <servlet>
 		<servlet-name>createCal</servlet-name>
