@@ -84,15 +84,20 @@
 	        		users = e;
 	        		break;
 	        	}
-	        	
+	        	boolean buttons = false;
 	        	if(found = true){ %>
 		        	<form action="/addEvents.jsp">
 	    				<input type="submit" value="Add Events to My Calendar">
 					</form>
+					<form action="/viewCalendar.jsp">
+	    				<input type="submit" value="View My Calendar">
+					</form>
+					buttons=true;
 				<% }
 	        	else{ %>
 	        		<p><a href="/createGroup.jsp">Create</a> or <a href="/joinGroup.jsp">join</a> a group before viewing your calendar.</p>
 	        	<% }
+	        	if(buttons){ break; }
 	        }
 	    %>
 		
