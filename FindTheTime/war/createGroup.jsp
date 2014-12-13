@@ -62,18 +62,62 @@
   </div>
 </div>
 	<div id="content">
-		<h3>Create a group below!</h3>
-		<form action="/createGroup" method="post">
-		Team Name: <input type="text" name="teamName" required> 
-		<br><br>
-		Team Members' Email Addresses<br>
-		Member 1: <input type="text" name="user1"><br>
-		Member 2: <input type="text" name="user2"><br>
-		Member 3: <input type="text" name="user3"><br>
-		Member 4: <input type="text" name="user4"><br>
-		Member 5: <input type="text" name="user5"><br>
-		<input type="submit" value="Submit"> <input type="reset" value="Clear All">
-		</form>
+		<h2>Create a group below!</h2>
+		
+<form action="/createGroup" method="post" class="form-horizontal">
+  <fieldset>
+    <legend></legend>
+    <div class="form-group">
+      <label for="inputTeam" class="col-lg-2 control-label">Team Name:</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" name="teamName" required>
+      </div>
+    </div>
+    
+    <legend>Team Members' Email Addresses</legend>
+    
+    <div class="form-group">
+      <label for="emailAddresses" class="col-lg-2 control-label">Member 1:</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" name="user1">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="emailAddresses" class="col-lg-2 control-label">Member 2:</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" name="user2">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="emailAddresses" class="col-lg-2 control-label">Member 3:</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" name="user3">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="emailAddresses" class="col-lg-2 control-label">Member 4:</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" name="user4">
+      </div>
+    </div>
+   
+    <div class="form-group">
+      <label for="emailAddresses" class="col-lg-2 control-label">Member 5:</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" name="user5">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+    <input type="submit" value="Submit" class="btn btn-success">
+	<input type="reset" value="Clear All" class="btn btn-danger">
+	</div></div>
+  </fieldset>
+</form>
+
 	</div>
 	<%
 		} else {

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ page import="java.util.List"%>
+<%@ page import="java.util.ArrayList"%>
 <%@ page import="com.google.appengine.api.users.User"%>
 <%@ page import="com.google.appengine.api.users.UserService"%>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory"%>
@@ -71,19 +72,15 @@
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		<-- NEEDS FIXIN: Display a calendar with all days of the week then for every event, write the start and end times on the corresponding day
 		<%
-		Queue query = new Query("users", appKey);
-	        List<Entity> usersList = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5000));
+		String appName = "default";
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+		Key appKey = KeyFactory.createKey("Time", appName);
+		Query queue = new Query("users", appKey);
+	        List<Entity> usersList = datastore.prepare(queue).asList(FetchOptions.Builder.withLimit(5000));
 	        boolean found = false;
 	        Entity users = null;
-	       for(Entry e : usersList) {
+	       for(Entity e : usersList) {
 	        	if (e.getProperty("userEmail").toString().equalsIgnoreCase(user.getEmail())) {
 	        		found = true;
 	        		users = e;
@@ -91,46 +88,113 @@
 	        	}
 	        }
 	   //users is the entity
-	   String calendar=users.getProperty("calendar").toString();
-	   String[] eventList=calendar.split("&");
-	   String commaSeperated="";
-	   for(int i=0;i<eventList.length;i++){
-		   if(i+1==eventList.length){
-			commaSeperated=commaSeperated+eventList[i];   
-		   }
-		   else{
-		 commaSeperated="\""+eventList[i]+",";
-		   }
-		%>
-		-->
-		
-		
-		<table>
-		<tr>
-			<td>Event</td>
-			<td>Sunday</td>
-			<td>Monday</td>
-			<td>Tuesday</td>
-			<td>Wednesday</td>
-			<td>Thursday</td>
-			<td>Friday</td>
-			<td>Saturday</td>
-		</tr>
-		</table>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	   if(found) {
+	   	   if(users.getProperty("calendar") == null){
+	   	   		%><p>You have no events in your calendar. Please go and <a href="/addEvents.jsp">add events</a>.</p><%
+	   	   } else {                                     
+		   //events look like: EventName1_Repeating?_00:00(start)_00:00(end)_day1_..._day7&EventName2...
+			%>
+			<table>
+				<tr>
+					<th>Event</th>
+					<th>Sunday</th>
+					<th>Monday</th>
+					<th>Tuesday</th>
+					<th>Wednesday</th>
+					<th>Thursday</th>
+					<th>Friday</th>
+					<th>Saturday</th>
+				</tr>
+			<%//create a new row for the first event in the list.
+			//Need to know the name, times and which days
+			String name;
+			String start;
+			String end;
+			  String calendar=users.getProperty("calendar").toString();
+			ArrayList<String> days;
+			String[] events = calendar.split("&");
+			for(String s : events){ // s should look like: EventName1_Repeating?_00:00(start)_00:00(end)_day1_..._day7
+				String[] eventPieces = s.split("_");
+				name = eventPieces[0];
+				start = eventPieces[2];
+				end = eventPieces[3];
+				days = new ArrayList<String>();
+				for(int i = 4; i < eventPieces.length; i++){
+					days.add(eventPieces[i]);
+				}
+			%>
+				<tr>
+					<td><%out.print(name);%></td>
+					<td><%
+						int counter = 0;
+						if(counter < days.size()){
+							if(days.get(counter).equals("sun")){
+								out.print(start+"-"+end);
+								counter++;
+							}
+						}
+					%></td>
+					<td><%
+						if(counter < days.size()){
+						if(days.get(counter).equals("mon")){
+							out.print(start+"-"+end);
+							counter++;
+							}
+						}
+					%></td>
+					<td><%
+						if(counter < days.size()){
+						if(days.get(counter).equals("tue")){
+							out.print(start+"-"+end);
+							counter++;
+							}
+						}
+					%></td>
+					<td><%
+						if(counter < days.size()){
+						if(days.get(counter).equals("wed")){
+							out.print(start+"-"+end);
+							counter++;
+							}
+						}
+					%></td>
+					<td><%
+					  	if(counter < days.size()){
+						if(days.get(counter).equals("thu")){
+							out.print(start+"-"+end);
+							counter++;
+							}
+						}
+					%></td>
+					<td><%
+						if(counter < days.size()){
+						if(days.get(counter).equals("fri")){
+							out.print(start+"-"+end);
+							counter++;
+							}
+						}
+					%></td>
+					<td><%
+						if(counter < days.size()){
+						if(days.get(counter).equals("sat")){
+							out.print(start+"-"+end);
+							counter++;
+							}
+						}
+					%></td>
+				</tr>
+			<%
+			}
+			%>
+					
+			</table>
+		<%
+			}
+		}	%>
 		
 		</br></br>
 		<div id="content">
-		<form action="/viewCalendar.jsp" method="post">
+		<form action="/deleteEvent" method="post">
 			Event Name: <input type="text" name="eventName" required>
 			</br></br>
 			<input type="submit" value="Delete Event in My Calendar">

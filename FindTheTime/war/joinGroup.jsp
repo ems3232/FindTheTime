@@ -62,13 +62,26 @@
   </div>
 </div>
 	<div id="content">
-		<h3>Search for a group by name below.</h3>
-		<p>(Note: You must be added into the group by the group leader in order to join an existing group from this page.</p>
-		<form action="/joinGroup" method="post">
-		Team Name: <input type="text" name="teamName"> 
-		<br>
-		<input type="submit" value="Submit"> <input type="reset" value="Clear All">
-		</form>
+		<h2>Search for a group by name below.</h2>
+			<p>(Note: You must be added into the group by the group leader in order</br>to join an existing group from this page.)</p>
+
+<form action="/joinGroup" method="post" class="form-horizontal">
+  <fieldset>
+    <legend></legend>
+    <div class="form-group">
+      <label for="inputTeam" class="col-lg-2 control-label">Team Name:</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" name="teamName" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+	<input type="submit" value="Submit" class="btn btn-success">
+	<input type="reset" value="Clear All" class="btn btn-danger">
+	</div></div>
+  </fieldset>
+</form>
+
 	</div>
 	<%
 		} else {

@@ -64,43 +64,100 @@
 	<div id="content">
 		<h2>Frequently Asked Questions</h2>
 		</br>
-		<h3>What is Find The Time?</h3>
-		<p>Find The Time is a web application designed for college students involved in semester-long group projects.  The application assists students finding time to meet as a group by analysing each group member's Google Calendar to find a time slot where everyone is mutually available.  Unlike most scheduling assistance applications online today, Find The Time will perform its analysis of your schedule every week to allow for students' varying and changing schedules.</p>
-		</br>
-		<h3>How do I make an account?</h3>
-		<p>You don't need to worry about creating an account.  Simply sign in with a gmail account, or a gmail-based account (such as a @utexas.edu address)</p>
-		</br>
-		<h3>How do I create a group?</h3>
-		<p>Sign in and navigate to the "Create a Group" page.  Enter your chosen team name (which must be unique from every other group using the application) and the email addresses of the rest of your team.  Then hit submit.  Be sure these addresses are gmail or gmail-based, otherwise the application will fail to import their Google Calendar for analysis.</p>
-		</br>
-		<h3>How do I join a group?</h3>
-		<p>After your team leader has created a group and provided the rest of the team's email addresses, you will receive an email that includes the name of the group and a link to the web application.  Sign in and navigate to the "Join a Group" page and enter the team name you saw in the email. (Make sure that it is exact, it IS case-sensitive.)</p>
-		</br>
-		<h3>How do I leave a group?</h3>
-		<p>Sign in and navigate to "My Account Settings"/"My Groups" and click the button that says "Leave Group" next to the group you want to leave.</p>
-		</br>
-		<h3>My team leader is dropping the class/project, how do we make a new team leader?</h3>
-		<p>The original team leader will need to sign in to their account and choose one of the other team members to become the leader.  After this, they can leave the group.  The application will not allow a team leader to leave the group without assigning a replacement first.</p>
-		</br>
-		<h3>What makes the team leader different than the rest of the team?</h3>
-		<p>A team leader has a few extra abilities within the application that normal group members do not have:</br>
+	</div>
+		
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">What is Find The Time?</h3>
+  </div>
+  <div class="panel-body">
+    Find The Time is a web application designed for college students involved in semester-long group projects.  The application assists students finding time to meet as a group by analyzing each group member's Google Calendar to find a time slot where everyone is mutually available.  Unlike most scheduling assistance applications online today, Find The Time will perform its analysis of your schedule every week to allow for students' varying and changing schedules.
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">How do I make an account?</h3>
+  </div>
+  <div class="panel-body">
+	You don't need to worry about creating an account.  Simply sign in with a gmail account, or a gmail-based account (such as a @utexas.edu address)
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">How do I create a group?</h3>
+  </div>
+  <div class="panel-body">
+	Sign in and navigate to the "Create a Group" page.  Enter your chosen team name (which must be unique from every other group using the application) and the email addresses of the rest of your team.  Then hit submit.  Be sure these addresses are gmail or gmail-based, otherwise the application will fail to import their Google Calendar for analysis.
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">How do I join a group?</h3>
+  </div>
+  <div class="panel-body">
+	After your team leader has created a group and provided the rest of the team's email addresses, you will receive an email that includes the name of the group and a link to the web application.  Sign in and navigate to the "Join a Group" page and enter the team name you saw in the email. (Make sure that it is exact, it IS case-sensitive.)
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">How do I leave a group?</h3>
+  </div>
+  <div class="panel-body">
+	Sign in and navigate to "My Groups" and click the button that says "Leave Group" next to the group you want to leave.
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">My team leader is dropping the class/project, how do we make a new team leader?</h3>
+  </div>
+  <div class="panel-body">
+	The original team leader will need to sign in to their account and choose one of the other team members to become the leader.  After this, they can leave the group.  The application will not allow a team leader to leave the group without assigning a replacement first.
+  </div>
+</div>	
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">What makes the team leader different than the rest of the team?</h3>
+  </div>
+  <div class="panel-body">
+A team leader has a few extra abilities within the application that normal group members do not have:</br>
 - Set the duration of the weekly meeting (e.g. - 1 hour, 30 minutes, etc.)</br>
 - Add and remove members from the group (up to 5 other members)</br>
 - Choose the team name</br>
-- Select earliest and latest meeting times (i.e. - no meetings after 10pm and no meetings earlier than 9am)</p>
-		</br>
-		<h3>Can I sign in using my "@utexas.edu" email address?</h3>
-		<p>Yes.</p>
-		</br>
-		<h3>How does it know when I'm free to work with my group?</h3>
-		<p>The application will request you to input all the times you have a conflict and then search through the schedules of all members and find time slots that all members can meet.</p>
-		</br>
-		<h3>Will I have to put my schedule in every week?</h3>
-		<p>No. You can set an event as a recurring conflict and it will carry over to the next week. However, if you have a one time event, you will have to go back in and update your schedule.</p>
-		</br>
-		<h3>How will we know what our top meeting times are?</h3>
-		<p>We will send an email to the leader of your group with the top three meeting times where they can then decide which time works best for your team.</p>
-		</div>
+- Select earliest and latest meeting times (i.e. - no meetings after 10pm and no meetings earlier than 9am)
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Can I sign in using my "@utexas.edu" email address?</h3>
+  </div>
+  <div class="panel-body">
+	Yes.
+  </div>
+</div>	
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">How does it know when I'm free to work with my group?</h3>
+  </div>
+  <div class="panel-body">
+	The application will request you to input all the times you have a conflict and then search through the schedules of all members and find time slots that all members can meet.
+  </div>
+</div>	
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Will I have to put my schedule in every week?</h3>
+  </div>
+  <div class="panel-body">
+	No. You can set an event as a recurring conflict and it will carry over to the next week. However, if you have a one time event, you will have to go back in and update your schedule.
+  </div>
+</div>	
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">How will we know what our top meeting times are?</h3>
+  </div>
+  <div class="panel-body">
+	We will send an email to the leader of your group with the top three meeting times where they can then decide which time works best for your team.
+  </div>
+</div>
 	
 	<%
 		} else {
@@ -125,45 +182,103 @@
   </div>
 </div>
 	<div id="content">
-				<h2>Frequently Asked Questions</h2>
+		<h2>Frequently Asked Questions</h2>
 		</br>
-		<h3>What is Find The Time?</h3>
-		<p>Find The Time is a web application designed for college students involved in semester-long group projects.  The application assists students finding time to meet as a group by analysing each group member's Google Calendar to find a time slot where everyone is mutually available.  Unlike most scheduling assistance applications online today, Find The Time will perform its analysis of your schedule every week to allow for students' varying and changing schedules.</p>
-		</br>
-		<h3>How do I make an account?</h3>
-		<p>You don't need to worry about creating an account.  Simply sign in with a gmail account, or a gmail-based account (such as a @utexas.edu address)</p>
-		</br>
-		<h3>How do I create a group?</h3>
-		<p>Sign in and navigate to the "Create a Group" page.  Enter your chosen team name (which must be unique from every other group using the application) and the email addresses of the rest of your team.  Then hit submit.  Be sure these addresses are gmail or gmail-based, otherwise the application will fail to import their Google Calendar for analysis.</p>
-		</br>
-		<h3>How do I join a group?</h3>
-		<p>After your team leader has created a group and provided the rest of the team's email addresses, you will receive an email that includes the name of the group and a link to the web application.  Sign in and navigate to the "Join a Group" page and enter the team name you saw in the email. (Make sure that it is exact, it IS case-sensitive.)</p>
-		</br>
-		<h3>How do I leave a group?</h3>
-		<p>Sign in and navigate to "My Account Settings"/"My Groups" and click the button that says "Leave Group" next to the group you want to leave.</p>
-		</br>
-		<h3>My team leader is dropping the class/project, how do we make a new team leader?</h3>
-		<p>The original team leader will need to sign in to their account and choose one of the other team members to become the leader.  After this, they can leave the group.  The application will not allow a team leader to leave the group without assigning a replacement first.</p>
-		</br>
-		<h3>What makes the team leader different than the rest of the team?</h3>
-		<p>A team leader has a few extra abilities within the application that normal group members do not have:</br>
+	</div>
+	
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">What is Find The Time?</h3>
+  </div>
+  <div class="panel-body">
+    Find The Time is a web application designed for college students involved in semester-long group projects.  The application assists students finding time to meet as a group by analyzing each group member's Google Calendar to find a time slot where everyone is mutually available.  Unlike most scheduling assistance applications online today, Find The Time will perform its analysis of your schedule every week to allow for students' varying and changing schedules.
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">How do I make an account?</h3>
+  </div>
+  <div class="panel-body">
+	You don't need to worry about creating an account.  Simply sign in with a gmail account, or a gmail-based account (such as a @utexas.edu address)
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">How do I create a group?</h3>
+  </div>
+  <div class="panel-body">
+	Sign in and navigate to the "Create a Group" page.  Enter your chosen team name (which must be unique from every other group using the application) and the email addresses of the rest of your team.  Then hit submit.  Be sure these addresses are gmail or gmail-based, otherwise the application will fail to import their Google Calendar for analysis.
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">How do I join a group?</h3>
+  </div>
+  <div class="panel-body">
+	After your team leader has created a group and provided the rest of the team's email addresses, you will receive an email that includes the name of the group and a link to the web application.  Sign in and navigate to the "Join a Group" page and enter the team name you saw in the email. (Make sure that it is exact, it IS case-sensitive.)
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">How do I leave a group?</h3>
+  </div>
+  <div class="panel-body">
+	Sign in and navigate to "My Groups" and click the button that says "Leave Group" next to the group you want to leave.
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">My team leader is dropping the class/project, how do we make a new team leader?</h3>
+  </div>
+  <div class="panel-body">
+	The original team leader will need to sign in to their account and choose one of the other team members to become the leader.  After this, they can leave the group.  The application will not allow a team leader to leave the group without assigning a replacement first.
+  </div>
+</div>	
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">What makes the team leader different than the rest of the team?</h3>
+  </div>
+  <div class="panel-body">
+A team leader has a few extra abilities within the application that normal group members do not have:</br>
 - Set the duration of the weekly meeting (e.g. - 1 hour, 30 minutes, etc.)</br>
 - Add and remove members from the group (up to 5 other members)</br>
 - Choose the team name</br>
-- Select earliest and latest meeting times (i.e. - no meetings after 10pm and no meetings earlier than 9am)</p>
-		</br>
-		<h3>Can I sign in using my "@utexas.edu" email address?</h3>
-		<p>Yes.</p>
-		</br>
-		<h3>How does it know when I'm free to work with my group?</h3>
-		<p>The application will request you to input all the times you have a conflict and then search through all members� schedules and find time slots that all members can meet.</p>
-		</br>
-		<h3>Will I have to put my schedule in every week?</h3>
-		<p>No. You can set an event as a recurring conflict and it will carry over to the next week. However, if you have a one time event, you will have to go back in and update your schedule.</p>
-		</br>
-		<h3>How will we know what our top meeting times are?</h3>
-		<p>We will send an email to the leader of your group with the top three meeting times where they can then decide which time works best for your team.</p>
-	</div>
+- Select earliest and latest meeting times (i.e. - no meetings after 10pm and no meetings earlier than 9am)
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Can I sign in using my "@utexas.edu" email address?</h3>
+  </div>
+  <div class="panel-body">
+	Yes.
+  </div>
+</div>	
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">How does it know when I'm free to work with my group?</h3>
+  </div>
+  <div class="panel-body">
+	The application will request you to input all the times you have a conflict and then search through the schedules of all members and find time slots that all members can meet.
+  </div>
+</div>	
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Will I have to put my schedule in every week?</h3>
+  </div>
+  <div class="panel-body">
+	No. You can set an event as a recurring conflict and it will carry over to the next week. However, if you have a one time event, you will have to go back in and update your schedule.
+  </div>
+</div>	
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">How will we know what our top meeting times are?</h3>
+  </div>
+  <div class="panel-body">
+	We will send an email to the leader of your group with the top three meeting times where they can then decide which time works best for your team.
+  </div>
+</div>
+
 	<%
 		}
 	%>

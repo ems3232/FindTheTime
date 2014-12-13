@@ -61,13 +61,15 @@
     </ul>
   </div>
 </div>
-	<div id="content">
-		<h3>About Find The Time!</h3>
-		<p>We are a web application dedicated to helping college students find the time to meet for group projects.<br>
-		Our application was inspired by our experiences taking multiple courses with team projects simultaneously<br>
-		with different members in each group.  We hope that our application can fill the need for students who need<br>
-		to schedule recurring meetings in a simple manner.</p>
-	</div>
+
+<div class="bgSizeCover">
+</div>
+
+<div class="jumbotron">
+  <h1>About Find The Time!</h1>
+  <p>We are a web application dedicated to helping college students find the time to meet for group projects. Our application was inspired by our experiences taking multiple courses with team projects simultaneously with different members in each group.  We hope that our application can fill the need for students who need to schedule recurring meetings in a simple manner.</p>
+</div>
+
 	<%
 		} else {
 	%>
@@ -90,15 +92,15 @@
     </ul>
   </div>
 </div>
-	<div id="content">
-		<h3>About Find The Time!</h3>
-		<p>We are a web application dedicated to helping college students find the time to meet for group projects.<br>
-		Our application was inspired by our experiences taking multiple courses with team projects simultaneously<br>
-		with different members in each group.  We hope that our application can fill the need for students who need<br>
-		to schedule recurring meetings in a simple manner.</p>
-		</br>
-		<p>Please sign in to make use of our application!</p>
-	</div>
+
+<div class="bgSizeCover">
+</div>
+
+<div class="jumbotron">
+  <h1>About Find The Time!</h1>
+  <p>We are a web application dedicated to helping college students find the time to meet for group projects. Our application was inspired by our experiences taking multiple courses with team projects simultaneously with different members in each group.  We hope that our application can fill the need for students who need to schedule recurring meetings in a simple manner.</p>
+</div>
+
 	<%
 		}
 	%>
