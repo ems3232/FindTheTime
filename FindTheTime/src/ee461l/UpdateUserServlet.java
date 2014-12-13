@@ -48,18 +48,27 @@ public class UpdateUserServlet extends HttpServlet {
     List<Entity> usersList = datastore.prepare(query2).asList(FetchOptions.Builder.withLimit(5000));
     
     for (Entity i : usersList) {
-    	
     	if (i.getProperty("userEmail").toString().equalsIgnoreCase(member)) {
     		
     		String calendar = i.getProperty("calendar").toString();   		
     		String[] eventList = calendar.split("&");
-    	
     		boolean check = false;
+    		
+    		if(!calendar.contains("&"))
+    		{
+    			String[] eventSingle =calendar.split("_");
+    			if(eventSingle[0].equals(check_event))
+    			{
+    				i.setProperty("calendar", "false");
+    				datastore.put(i);
+    			}
+    		}
+    		else{
     		
  		    for(int j = 0; j < eventList.length; j++){
  		    	
  		    	String[] event = eventList[j].split("_");
- 	
+ 		    	
  		    	if(event[0].equals(check_event)){
  		    		
  		    		check = true;
@@ -93,8 +102,10 @@ public class UpdateUserServlet extends HttpServlet {
 	 		    datastore.put(i);
 	 		    check = false;
  		    }
-    	}
-    }  
+    	
+    		}
+    	}// IF FOUND USER
+    } //user ENTITY 
 
     
     resp.sendRedirect("/viewCalendar.jsp");
