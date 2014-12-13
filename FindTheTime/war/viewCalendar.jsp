@@ -92,17 +92,6 @@
 	   	   if(users.getProperty("calendar") == null){
 	   	   		%><p>You have no events in your calendar. Please go and <a href="/addEvents.jsp">add events</a>.</p><%
 	   	   } else {                                     
-		   String calendar=users.getProperty("calendar").toString();
-		   String[] eventList=calendar.split("&");
-		   String commaSeperated="";
-		   for(int i = 0; i < eventList.length; i++){
-			   if(i+1==eventList.length){
-				commaSeperated=commaSeperated+eventList[i];   
-			   }
-			   else{
-			    commaSeperated=eventList[i]+",";
-			   }
-		   } //results in list of events
 		   //events look like: EventName1_Repeating?_00:00(start)_00:00(end)_day1_..._day7&EventName2...
 			%>
 			<table>
@@ -121,13 +110,15 @@
 			String name;
 			String start;
 			String end;
-			ArrayList<String> days = new ArrayList<String>();
-			String[] events = commaSeperated.split(",");
+			  String calendar=users.getProperty("calendar").toString();
+			ArrayList<String> days;
+			String[] events = calendar.split("&");
 			for(String s : events){ // s should look like: EventName1_Repeating?_00:00(start)_00:00(end)_day1_..._day7
 				String[] eventPieces = s.split("_");
 				name = eventPieces[0];
 				start = eventPieces[2];
 				end = eventPieces[3];
+				days = new ArrayList<String>();
 				for(int i = 4; i < eventPieces.length; i++){
 					days.add(eventPieces[i]);
 				}
@@ -136,45 +127,59 @@
 					<td><%out.print(name);%></td>
 					<td><%
 						int counter = 0;
-						if(days.get(counter).equals("sun") && counter < days.size()){
-							out.print(start+"-"+end);
-							counter++;
+						if(counter < days.size()){
+							if(days.get(counter).equals("sun")){
+								out.print(start+"-"+end);
+								counter++;
+							}
 						}
 					%></td>
 					<td><%
-						if(days.get(counter).equals("mon") && counter < days.size()){
+						if(counter < days.size()){
+						if(days.get(counter).equals("mon")){
 							out.print(start+"-"+end);
 							counter++;
+							}
 						}
 					%></td>
 					<td><%
-						if(days.get(counter).equals("tue") && counter < days.size()){
+						if(counter < days.size()){
+						if(days.get(counter).equals("tue")){
 							out.print(start+"-"+end);
 							counter++;
+							}
 						}
 					%></td>
 					<td><%
-						if(days.get(counter).equals("wed") && counter < days.size()){
+						if(counter < days.size()){
+						if(days.get(counter).equals("wed")){
 							out.print(start+"-"+end);
 							counter++;
+							}
 						}
 					%></td>
 					<td><%
-						if(days.get(counter).equals("thu") && counter < days.size()){
+					  	if(counter < days.size()){
+						if(days.get(counter).equals("thu")){
 							out.print(start+"-"+end);
 							counter++;
+							}
 						}
 					%></td>
 					<td><%
-						if(days.get(counter).equals("fri") && counter < days.size()){
+						if(counter < days.size()){
+						if(days.get(counter).equals("fri")){
 							out.print(start+"-"+end);
 							counter++;
+							}
 						}
 					%></td>
 					<td><%
-						if(days.get(counter).equals("sat") && counter < days.size()){
+						if(counter < days.size()){
+						if(days.get(counter).equals("sat")){
 							out.print(start+"-"+end);
 							counter++;
+							}
 						}
 					%></td>
 				</tr>
@@ -189,7 +194,7 @@
 		
 		</br></br>
 		<div id="content">
-		<form action="/viewCalendar.jsp" method="post">
+		<form action="/deleteEvent" method="post">
 			Event Name: <input type="text" name="eventName" required>
 			</br></br>
 			<input type="submit" value="Delete Event in My Calendar">

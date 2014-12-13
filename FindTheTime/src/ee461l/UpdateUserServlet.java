@@ -38,7 +38,7 @@ public class UpdateUserServlet extends HttpServlet {
 	UserService userService = UserServiceFactory.getUserService();
 	User user = userService.getCurrentUser();
 	String member = user.getEmail();
-	String check_event = req.getParameter("event");
+	String check_event = req.getParameter("eventName");
 	
 	String appName = "default";
 	DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -53,12 +53,13 @@ public class UpdateUserServlet extends HttpServlet {
     		
     		String calendar = i.getProperty("calendar").toString();   		
     		String[] eventList = calendar.split("&");
+    	
     		boolean check = false;
     		
  		    for(int j = 0; j < eventList.length; j++){
  		    	
  		    	String[] event = eventList[j].split("_");
- 		    	
+ 	
  		    	if(event[0].equals(check_event)){
  		    		
  		    		check = true;
@@ -89,13 +90,14 @@ public class UpdateUserServlet extends HttpServlet {
 	 		    }
 	 		  
 	 		    i.setProperty("calendar", result);
+	 		    datastore.put(i);
 	 		    check = false;
  		    }
     	}
     }  
 
     
-    resp.sendRedirect("");
+    resp.sendRedirect("/viewCalendar.jsp");
 }
     
 }

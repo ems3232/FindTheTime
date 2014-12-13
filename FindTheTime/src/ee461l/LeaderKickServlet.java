@@ -59,35 +59,35 @@ public class LeaderKickServlet extends HttpServlet {
     		
     		if(e.getProperty("user1") !=null){		//not sure about .equal, need to double check @@@@@@@@@@@@@@@@
 	    		if(e.getProperty("user1").toString().equals(kickmember)){
-	    			e.setProperty("user1", null);
+	    			e.setProperty("user1", "N/A");
 	                e.setProperty("user1Flag",false);
 	               // e.setProperty("Cal1Flag", false);
 	    		}
     		}
     		 if(e.getProperty("user2")!=null){
 	    		if(e.getProperty("user2").toString().equals(kickmember)){
-	    			e.setProperty("user2", null);
+	    			e.setProperty("user2", "N/A");
 	                e.setProperty("user2Flag",false);
 	             //   e.setProperty("Cal2Flag", false);
 	    		}
     		}
     		 if(e.getProperty("user3")!=null){
 	    		if(e.getProperty("user3").toString().equals(kickmember)){
-	    			e.setProperty("user3", null);
+	    			e.setProperty("user3", "N/A");
 	                e.setProperty("user3Flag",false);
 	             //   e.setProperty("Cal3Flag", false);
 	    		}
     		}
     		 if(e.getProperty("user4")!=null){
 	    		if(e.getProperty("user4").toString().equals(kickmember)){
-	    			e.setProperty("user4", null);
+	    			e.setProperty("user4", "N/A");
 	                e.setProperty("user4Flag",false);
 	             //   e.setProperty("Cal4Flag", false);
 	    		}
     		}
     		 if(e.getProperty("user5")!=null){
 	    		if(e.getProperty("user5").toString().equals(kickmember)){
-	    			e.setProperty("user5", null);
+	    			e.setProperty("user5", "N/A");
 	                e.setProperty("user5Flag",false);
 	              //  e.setProperty("Cal5Flag", false);
 	    		}

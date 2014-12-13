@@ -97,6 +97,14 @@
 		<url-pattern>/createCal</url-pattern>
 	</servlet-mapping>
   
+	  <servlet>
+		<servlet-name>deleteEvent</servlet-name>
+		<servlet-class>ee461l.UpdateUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteEvent</servlet-name>
+		<url-pattern>/deleteEvent</url-pattern>
+	</servlet-mapping>
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>FindTheTime.jsp</welcome-file>

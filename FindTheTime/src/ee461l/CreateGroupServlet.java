@@ -203,7 +203,7 @@ public void sendEmail(String strCallResult,String userPerson){
 		newUserEntity.setProperty("group2", null);
 		newUserEntity.setProperty("group3", null);
 		newUserEntity.setProperty("group4", null);	
-		newUserEntity.setProperty("calendar","false8");
+		newUserEntity.setProperty("calendar","false");
 		return newUserEntity;
 	}
    private Entity addGroup(Entity user,String teamName,HttpServletResponse resp){

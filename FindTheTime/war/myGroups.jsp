@@ -170,6 +170,7 @@
 				<td><p><%= userGroupEntity1.getProperty("teamName") %></p></td>
 				<td><p><%= userGroupEntity1.getProperty("user0") %></p></td>
 				<td><p><%= userGroupEntity1.getProperty("user1") %></p> 
+				<% if(!userGroupEntity1.getProperty("user1").toString().equals("N/A")){ %> 
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity1.getProperty("user1") %>"/>
@@ -180,8 +181,10 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity1.getProperty("user1") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
 				<td><p><%= userGroupEntity1.getProperty("user2") %></p> 
+				<% if(!userGroupEntity1.getProperty("user2").toString().equals("N/A")){ %> 
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity1.getProperty("user2") %>"/>
@@ -192,8 +195,10 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity1.getProperty("user2") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
 				<td><p><%= userGroupEntity1.getProperty("user3") %></p> 
+				<% if(!userGroupEntity1.getProperty("user3").toString().equals("N/A")){ %> 
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity1.getProperty("user3") %>"/>
@@ -204,8 +209,10 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity1.getProperty("user3") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
 				<td><p><%= userGroupEntity1.getProperty("user4") %></p> 
+				<% if(!userGroupEntity1.getProperty("user4").toString().equals("N/A")){ %> 
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity1.getProperty("user4") %>"/>
@@ -216,8 +223,10 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity1.getProperty("user4") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
-				<td><p><%= userGroupEntity1.getProperty("user5") %></p> 
+				<td><p><%= userGroupEntity1.getProperty("user5") %></p>
+				<% if(!userGroupEntity1.getProperty("user5").toString().equals("N/A")){ %> 
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity1.getProperty("user5") %>"/>
@@ -228,6 +237,7 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity1.getProperty("user5") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
 				<td>
 					<form action="disbandGroup" method="post">
@@ -270,7 +280,8 @@
 			<tr>
 				<td><p><%= userGroupEntity2.getProperty("teamName") %></p></td>
 				<td><p><%= userGroupEntity2.getProperty("user0") %></p></td>
-				<td><p><%= userGroupEntity2.getProperty("user1") %></p> 
+				<td><p><%= userGroupEntity2.getProperty("user1") %></p>
+				<% if(!userGroupEntity2.getProperty("user1").toString().equals("N/A")){ %>  
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity2.getProperty("user1") %>"/>
@@ -281,8 +292,10 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity2.getProperty("user1") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
-				<td><p><%= userGroupEntity2.getProperty("user2") %></p> 
+				<td><p><%= userGroupEntity2.getProperty("user2") %></p>
+				<% if(!userGroupEntity2.getProperty("user2").toString().equals("N/A")){ %> 
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity2.getProperty("user2") %>"/>
@@ -293,8 +306,10 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity2.getProperty("user2") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
 				<td><p><%= userGroupEntity2.getProperty("user3") %></p> 
+				<% if(!userGroupEntity2.getProperty("user3").toString().equals("N/A")){ %>
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity2.getProperty("user3") %>"/>
@@ -305,8 +320,10 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity2.getProperty("user3") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
 				<td><p><%= userGroupEntity2.getProperty("user4") %></p> 
+				<% if(!userGroupEntity2.getProperty("user4").toString().equals("N/A")){ %>
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity2.getProperty("user4") %>"/>
@@ -317,8 +334,10 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity2.getProperty("user4") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
-				<td><p><%= userGroupEntity2.getProperty("user5") %></p> 
+				<td><p><%= userGroupEntity2.getProperty("user5") %></p>
+				<% if(!userGroupEntity2.getProperty("user5").toString().equals("N/A")){ %> 
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity2.getProperty("user5") %>"/>
@@ -329,6 +348,7 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity2.getProperty("user5") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
 				<td>
 					<form action="disbandGroup" method="post">
@@ -372,6 +392,7 @@
 				<td><p><%= userGroupEntity3.getProperty("teamName") %></p></td>
 				<td><p><%= userGroupEntity3.getProperty("user0") %></p></td>
 				<td><p><%= userGroupEntity3.getProperty("user1") %></p> 
+				<% if(!userGroupEntity3.getProperty("user1").toString().equals("N/A")){ %>
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity3.getProperty("user1") %>"/>
@@ -382,8 +403,10 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity3.getProperty("user1") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
 				<td><p><%= userGroupEntity3.getProperty("user2") %></p> 
+				<% if(!userGroupEntity3.getProperty("user2").toString().equals("N/A")){ %>
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity3.getProperty("user2") %>"/>
@@ -394,8 +417,10 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity3.getProperty("user2") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
-				<td><p><%= userGroupEntity3.getProperty("user3") %></p> 
+				<td><p><%= userGroupEntity3.getProperty("user3") %></p>
+				<% if(!userGroupEntity3.getProperty("user3").toString().equals("N/A")){ %> 
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity3.getProperty("user3") %>"/>
@@ -406,8 +431,10 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity3.getProperty("user3") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
 				<td><p><%= userGroupEntity3.getProperty("user4") %></p> 
+				<% if(!userGroupEntity3.getProperty("user4").toString().equals("N/A")){ %>
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity3.getProperty("user4") %>"/>
@@ -417,9 +444,11 @@
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity3.getProperty("user4") %>"/>
 						<input type="submit" value="Delegate Leader"/>
-					</form> 
+					</form>
+					<% } %> 
 				</td>
 				<td><p><%= userGroupEntity3.getProperty("user5") %></p> 
+				<% if(!userGroupEntity3.getProperty("user5").toString().equals("N/A")){ %>
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity3.getProperty("user5") %>"/>
@@ -430,6 +459,7 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity3.getProperty("user5") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
 				<td>
 					<form action="disbandGroup" method="post">
@@ -440,6 +470,7 @@
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="submit" value="Run Algorithm"/>
 					</form> 
+					
 				</td>
 			</tr>
 			<%
@@ -473,6 +504,7 @@
 				<td><p><%= userGroupEntity4.getProperty("teamName") %></p></td>
 				<td><p><%= userGroupEntity4.getProperty("user0") %></p></td>
 				<td><p><%= userGroupEntity4.getProperty("user1") %></p> 
+				<% if(!userGroupEntity4.getProperty("user1").toString().equals("N/A")){ %>
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity4.getProperty("user1") %>"/>
@@ -483,8 +515,10 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity4.getProperty("user1") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
 				<td><p><%= userGroupEntity4.getProperty("user2") %></p> 
+				<% if(!userGroupEntity4.getProperty("user2").toString().equals("N/A")){ %>
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity4.getProperty("user2") %>"/>
@@ -495,8 +529,10 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity4.getProperty("user2") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
 				<td><p><%= userGroupEntity4.getProperty("user3") %></p> 
+				<% if(!userGroupEntity4.getProperty("user3").toString().equals("N/A")){ %>
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity4.getProperty("user3") %>"/>
@@ -506,9 +542,11 @@
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity4.getProperty("user3") %>"/>
 						<input type="submit" value="Delegate Leader"/>
-					</form> 
+					</form>
+					<% } %> 
 				</td>
-				<td><p><%= userGroupEntity4.getProperty("user4") %></p> 
+				<td><p><%= userGroupEntity4.getProperty("user4") %></p>
+				<% if(!userGroupEntity4.getProperty("user4").toString().equals("N/A")){ %> 
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity4.getProperty("user4") %>"/>
@@ -519,8 +557,10 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity4.getProperty("user4") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
-				<td><p><%= userGroupEntity4.getProperty("user5") %></p> 
+				<td><p><%= userGroupEntity4.getProperty("user5") %></p>
+				<% if(!userGroupEntity4.getProperty("user5").toString().equals("N/A")){ %>
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity4.getProperty("user5") %>"/>
@@ -531,6 +571,7 @@
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity4.getProperty("user5") %>"/>
 						<input type="submit" value="Delegate Leader"/>
 					</form> 
+					<% } %>
 				</td>
 				<td>
 					<form action="disbandGroup" method="post">
@@ -564,9 +605,11 @@
 				</td>
 			</tr>
 			<%
-				}}
+				}
+			}
 			%>
 		</table>
+		
 		</div>
 			<%	
 				}
