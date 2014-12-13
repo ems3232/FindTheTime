@@ -97,14 +97,33 @@
 		<url-pattern>/createCal</url-pattern>
 	</servlet-mapping>
   
-	  <servlet>
+	 	 <servlet>
 		<servlet-name>deleteEvent</servlet-name>
 		<servlet-class>ee461l.UpdateUserServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
+		</servlet>
+		<servlet-mapping>
 		<servlet-name>deleteEvent</servlet-name>
 		<url-pattern>/deleteEvent</url-pattern>
-	</servlet-mapping>
+		</servlet-mapping>
+		
+		 <servlet>
+		<servlet-name>addMember</servlet-name>
+		<servlet-class>ee461l.AddMemberServlet</servlet-class>
+		</servlet>
+		<servlet-mapping>
+		<servlet-name>addMember</servlet-name>
+		<url-pattern>/addMember</url-pattern>
+		</servlet-mapping>
+		
+		<servlet>
+		<servlet-name>decrementDay</servlet-name>
+		<servlet-class>ee461l.DecrementDayServlet</servlet-class>
+		</servlet>
+		<servlet-mapping>
+		<servlet-name>decrementDay</servlet-name>
+		<url-pattern>/decrementDay</url-pattern>
+		</servlet-mapping>
+		
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>FindTheTime.jsp</welcome-file>

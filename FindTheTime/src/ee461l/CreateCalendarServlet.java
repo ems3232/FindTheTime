@@ -130,7 +130,7 @@ public class CreateCalendarServlet extends HttpServlet{
         users.setProperty("calendar",oldCalendar);
         datastore.put(users);
         }
-        resp.sendRedirect("/FindTheTime.jsp?blogName=");
+        resp.sendRedirect("/viewCalendar.jsp");
 	}
 	 
 }

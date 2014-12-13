@@ -52,9 +52,10 @@ public class CreateGroupServlet extends HttpServlet {
             String user3 = req.getParameter("user3");
             String user4 = req.getParameter("user4");
             String user5 = req.getParameter("user5");
-            strCallResult= "Hello"+ "\n"+"You are invited to -"+teamName+"-"+ "\n"+
-            		"Please Join this group"+"\n"+"just type in -"+
-            		teamName+"-\nIn the correct Field";
+            strCallResult= "Hello"+ "\n"+"You are invited to "+teamName+""+ "\n"+
+            		"Please Join this group"+"\n"+"\nJust Type in "+
+            		teamName+"In the correct Field"+"\nhttp://kellyfindthetime67.appspot.com/FindTheTime.jsp"+
+            		"\nPlease sign in and Go to the Join Group Tab. Thank you and Enjoy";
           //  Date date = new Date();
             Query query2 = new Query("group", timeKey);
             List<Entity> groups = datastore.prepare(query2).asList(FetchOptions.Builder.withLimit(5000));
@@ -68,7 +69,7 @@ public class CreateGroupServlet extends HttpServlet {
             	}
             }
             	if(founded){
-        			resp.sendRedirect("/FindTheTime.jsp?blogName=" + !founded);
+        			resp.sendRedirect("/myGroups.jsp");
             	}
 
             	else{	
@@ -77,7 +78,7 @@ public class CreateGroupServlet extends HttpServlet {
             group.setProperty("user0", user0);
             group.setProperty("user0Flag", true);
            // group.setProperty("Cal0Flag", false);
-           // sendEmail(strCallResult, user0);
+                sendEmail(strCallResult, user0);
            Entity users = null;
             
             Query query = new Query("users", timeKey);
@@ -94,11 +95,11 @@ public class CreateGroupServlet extends HttpServlet {
             if(!found){
             	  users =createUser(user,timeKey,teamName);
             }
-            if (isValidEmailAddress(user1)){
+            if ((isValidEmailAddress(user1))&& (!user1.equalsIgnoreCase(user0))){
             group.setProperty("user1", user1);
             group.setProperty("user1Flag",false);
          //   group.setProperty("Cal1Flag", false);
-         //   sendEmail(strCallResult, user1);
+                sendEmail(strCallResult, user1);
             }
             else{
             	group.setProperty("user1Flag",false);
@@ -106,11 +107,11 @@ public class CreateGroupServlet extends HttpServlet {
             	count=count+1;
             	failures=failures + user1+"\n";        	
             }
-            if (isValidEmailAddress(user2)){
+            if ((isValidEmailAddress(user2)) && (!user2.equalsIgnoreCase(user0))){
                 group.setProperty("user2", user2);
                 group.setProperty("user2Flag",false);
               //  group.setProperty("Cal2Flag", false);
-             //sendEmail(strCallResult, user2);
+                    sendEmail(strCallResult, user2);
                 }
                 else{
                 	group.setProperty("user2Flag",false);
@@ -118,11 +119,11 @@ public class CreateGroupServlet extends HttpServlet {
                 	count=count+1;
                 	failures=failures + user1+"\n";        	
                 }  
-            if (isValidEmailAddress(user3)){
+            if ((isValidEmailAddress(user3)) && (!user3.equalsIgnoreCase(user0))){
                     group.setProperty("user3", user3);
                     group.setProperty("user3Flag",false);
                  //   group.setProperty("Cal3Flag", false);
-               //   sendEmail(strCallResult, user3);
+                  sendEmail(strCallResult, user3);
                     }
                 else{
                 	group.setProperty("user3Flag",false);
@@ -130,11 +131,11 @@ public class CreateGroupServlet extends HttpServlet {
                 	group.setProperty("user3","N/A");
                 	failures=failures + user3+"\n";        	
                 }  
-            if (isValidEmailAddress(user4)){
+            if ((isValidEmailAddress(user4)) && (!user4.equalsIgnoreCase(user0))){
                     group.setProperty("user4", user4);
                     group.setProperty("user4Flag",false);
                //     group.setProperty("Cal4Flag", false);
-                 //  sendEmail(strCallResult, user4);
+                  sendEmail(strCallResult, user4);
                     }
                 else{
                 	group.setProperty("user4Flag",false);
@@ -142,11 +143,11 @@ public class CreateGroupServlet extends HttpServlet {
                 	count=count+1;
                 	failures=failures + user4+"\n";        	
                 }  
-            if (isValidEmailAddress(user5)){
+            if ((isValidEmailAddress(user5)) && (!user5.equalsIgnoreCase(user0))){
                     group.setProperty("user5", user5);
                     group.setProperty("user5Flag",false);
              //       group.setProperty("Cal5Flag", false);
-                 //sendEmail(strCallResult, user5);
+                 sendEmail(strCallResult, user5);
                     }
                 else{
                 	 group.setProperty("user5Flag",false);
@@ -158,14 +159,23 @@ public class CreateGroupServlet extends HttpServlet {
 //startTime int 
 //endTime   int
 //meetingLength   int in minutes
+            group.setProperty("optimalTime1", "false");
+            group.setProperty("optimalTime2", "false");
+            group.setProperty("optimalTime3", "false");
+            group.setProperty("meetingLength",req.getParameter("meetingLength"));
+            group.setProperty("startTimeHours", req.getParameter("startTimeHours"));
+            group.setProperty("startTimeMinutes", req.getParameter("startTimeMinutes"));
+            group.setProperty("endTimeHours", req.getParameter("endTimeHours"));
+            group.setProperty("endTimeMinutes", req.getParameter("endTimeMinutes"));
+            group.setProperty("dayLimit", 180);
          datastore.put(users);
          datastore.put(group);
      
          if(count !=0){
-        	 resp.sendRedirect("/FindTheTime.jsp?blogName=" + guestBookName);
+        	 resp.sendRedirect("/myGroups.jsp");
              return;}
              else{
-          resp.sendRedirect("/FindTheTime.jsp?blogName=" + failures);
+          resp.sendRedirect("/myGroups.jsp");
          return;}
     } 
 	}
@@ -185,7 +195,7 @@ public void sendEmail(String strCallResult,String userPerson){
 		Session session = Session.getDefaultInstance(props, null);
     	try{
     		MimeMessage outMessage = new MimeMessage(session);
-		outMessage.setFrom(new InternetAddress("admin@kellyfindthetime67.appspotmail.com"));
+		outMessage.setFrom(new InternetAddress("admin@findthetimeteamlegit67.appspotmail.com"));
 		outMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(userPerson));
 		outMessage.setSubject("You Are Invited!");
 		outMessage.setText(strCallResult);
@@ -218,7 +228,7 @@ public void sendEmail(String strCallResult,String userPerson){
        }
 	   if(!work){
 		   try {
-			resp.sendRedirect("/FindTheTime.jsp?blogName=" + work);
+			resp.sendRedirect("/myGroups.jsp");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

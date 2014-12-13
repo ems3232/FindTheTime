@@ -183,6 +183,19 @@ optionj.value = "45";
 	chkBoxDivHtml.innerHTML = chkBoxHtml1 + chkBoxHtml2 + chkBoxHtml3 + chkBoxHtml4 + chkBoxHtml5 + chkBoxHtml6 + chkBoxHtml7;
 	cell5.appendChild(chkBoxDivHtml);
 }
+function checkValidEventName( form ){
+		var elements = form.elements;
+		for( var i = 1; i < elements.length ; i+=14 ){
+			var amp = /&+/.test(elements[i].value);
+			var und = /_+/.test(elements[i].value);
+		
+			if( amp || und ){
+				alert( "You used an & or an _ and that would completely fuck everything up. Try again, dumbass." );
+				return false;
+			}
+		}
+		return true;
+}
 </script>
 </head>
 
@@ -231,7 +244,7 @@ optionj.value = "45";
 		<h2>This is the Add Events to My Calendar Page.</h2>
 		<p>Click <a href="/viewCalendar.jsp">here</a> if you need to view your calendar or remove events.</p>
 		<button onClick="myCreateFunction()" class="btn btn-info">Add Another Event</button><p id="testOut"></p>
-		<form action="createCal" method="post">
+		<form action="createCal" method="post" id="eventForm" onsubmit="return checkValidEventName( this );">
 		<input type="hidden" name="rowNumber" id="rowNumber" value="1"></input>
 		<table id="addEventTable">
 			<tr>

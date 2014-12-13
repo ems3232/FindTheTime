@@ -1,5 +1,6 @@
 package ee461l;
 import com.google.appengine.api.datastore.DatastoreService;
+
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.FetchOptions;
@@ -85,9 +86,10 @@ public class AlgorithmServlet extends HttpServlet {
 	    		}	    	
 	    	}
 	    }
-	    
+	   
 	    for(Entity t: groups) {
 	    	if (t.getProperty("teamName").toString().equals(teamName)) {
+	    		
 		for(Entity i : usersList) { // go through each users
 			
 		
@@ -116,30 +118,39 @@ public class AlgorithmServlet extends HttpServlet {
 					plz.getgroupConflicts().set(5,each_row);				
 				}		
 		}	
-		}
+		
+		
+		
+		FTTAlgorithm alg = FTTAlgorithm.getAlgorithmInstance();
+		
+		int endHours=Integer.parseInt(t.getProperty("endTimeHours").toString());
+		     endHours=endHours*100;
+		int endMinutes=Integer.parseInt(t.getProperty("endTimeMinutes").toString());
+			endHours=endHours+endMinutes;
+		int startHours=Integer.parseInt(t.getProperty("startTimeHours").toString());
+	     	startHours=startHours*100;
+	    int startMinutes=Integer.parseInt(t.getProperty("startTimeMinutes").toString());
+				startHours=startHours+startMinutes;
+		int meetingTime=Integer.parseInt(t.getProperty("meetingLength").toString());
+		
+		ArrayList<String> result = alg.runAlgorithm (plz, meetingTime,startHours,endHours);
+		for(int p=0;p<result.size();p++){
+			String times="optimalTime"+(p+1);
+			t.setProperty(times, result.get(p));
+			datastore.put(t);
+				}
 	    }
 		//e.getProperty("startTime"),e.getProperty("endTime")
 		// not sure after this @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		FTTAlgorithm alg = FTTAlgorithm.getAlgorithmInstance();
 	
-		ArrayList<String> result = alg.runAlgorithm (plz, 240,800,2200);
-		Entity test=new Entity("test",appKey);
 		
-		String crap="hello";
-		for(int u=0;u<result.size();u++){
-			crap=crap+result.get(u);
-		}
-		String shit="";
-		for(int p=0;p<plz.getUsersInGroup().size();p++){
-			shit=shit+plz.getUsersInGroup().get(p);
-		}
-		test.setProperty("test",crap);
-		test.setProperty("usersinGroup", shit);
-		datastore.put(test);
-		resp.sendRedirect("/FindTheTime.jsp?blogName=");   	
-	 }
+		
+	    }
+		resp.sendRedirect("/myGroups.jsp");   	
+	 
 
 	
  
 	
+}
 }

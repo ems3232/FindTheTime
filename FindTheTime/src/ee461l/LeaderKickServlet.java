@@ -122,7 +122,7 @@ public class LeaderKickServlet extends HttpServlet {
     }//Entity for Group FOR LOOP
 	
     
-    resp.sendRedirect("");
+    resp.sendRedirect("/myGroups.jsp");
 	}//do Post
     
 }

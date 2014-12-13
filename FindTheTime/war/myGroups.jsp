@@ -79,7 +79,33 @@
 				System.out.println("user isn't in any groups");
 			%>
 					<!-- HTML for logged-in user that has an account, but is not apart of a group.  Something along the lines of "You are not in any groups. go join one!" -->
-					
+					<div class="navbar navbar-default">
+					<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/FindTheTime.jsp">Find The Time</a>
+					</div>
+					<div class="navbar-collapse collapse navbar-responsive-collapse">
+					<ul class="nav navbar-nav">
+					  <li><a href="/FindTheTime.jsp">Home</a></li>
+					  <li><a href="/createGroup.jsp">Create a Group</a></li>
+					  <li><a href="/joinGroup.jsp">Join a Group</a></li>
+					  <li><a href="/faq.jsp">FAQs</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+					  <li class="active"><a href="/myGroups.jsp">My Groups</a></li>
+					  <li><a href="/myCalendar.jsp">My Calendar</a></li>
+					  <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign Out</a></li>
+					</ul>
+					</div>
+					</div>
+					<div id="content">
+						<h2>This is the My Groups page.</h2>
+						<p>Click <a href="/createGroup.jsp">here</a> to create a group.</p>
+					</div>
 					
 			<%
 				} 
@@ -159,6 +185,7 @@
 				<th>Member 5</th>
 				<th>Member 6</th>
 				<th>Function</th>
+				<th>Optimal Meeting Times</th>
 			</tr>
 			<%
 				if (userGroup1 != null && userGroupEntity1 != null) {
@@ -176,11 +203,19 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity1.getProperty("user1") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity1.getProperty("user1Flag").toString().equals("True")){ %> 
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity1.getProperty("user1") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="1"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td><p><%= userGroupEntity1.getProperty("user2") %></p> 
@@ -190,11 +225,19 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity1.getProperty("user2") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity1.getProperty("user2Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity1.getProperty("user2") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="2"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td><p><%= userGroupEntity1.getProperty("user3") %></p> 
@@ -204,11 +247,19 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity1.getProperty("user3") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity1.getProperty("user3Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity1.getProperty("user3") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="3"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td><p><%= userGroupEntity1.getProperty("user4") %></p> 
@@ -216,13 +267,21 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity1.getProperty("user4") %>"/>
-						<input type="submit" value="Kick" class="btn btn-success"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity1.getProperty("user4Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity1.getProperty("user4") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-danger"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="4"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td><p><%= userGroupEntity1.getProperty("user5") %></p>
@@ -230,13 +289,21 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity1.getProperty("user5") %>"/>
-						<input type="submit" value="Kick" class="btn btn-success"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity1.getProperty("user5Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity1.getProperty("user5") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-danger"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="5"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td>
@@ -248,6 +315,27 @@
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="submit" value="Run Algorithm" class="btn btn-success"/>
 					</form> 
+				</td>
+				<td>
+				<% if(!userGroupEntity1.getProperty("optimalTime1").toString().equals("false")){ 
+					String name = new String();
+					String start = new String();
+					String end = new String();
+					String day = new String();
+					String[] events = new String[3];
+					events[0] = userGroupEntity1.getProperty("optimalTime1").toString();
+					events[1] = userGroupEntity1.getProperty("optimalTime2").toString();
+					events[2] = userGroupEntity1.getProperty("optimalTime3").toString();
+					for(String s : events){ 
+						String[] eventPieces = s.split("_");
+						name = eventPieces[0];
+						start = eventPieces[2];
+						end = eventPieces[3];
+						day = eventPieces[4];
+				%>
+					<p><%= name %>:</br>
+					<%= day %> from <%= start %> to <%= end %>.</p>
+				<% }} %>
 				</td>
 			</tr>
 			<%
@@ -269,6 +357,27 @@
 						<input type="submit" value="Leave Group" class="btn btn-danger"/>
 					</form> 
 				</td>
+				<td>
+				<% if(!userGroupEntity1.getProperty("optimalTime1").toString().equals("false")){ 
+					String name = new String();
+					String start = new String();
+					String end = new String();
+					String day = new String();
+					String[] events = new String[3];
+					events[0] = userGroupEntity1.getProperty("optimalTime1").toString();
+					events[1] = userGroupEntity1.getProperty("optimalTime2").toString();
+					events[2] = userGroupEntity1.getProperty("optimalTime3").toString();
+					for(String s : events){ 
+						String[] eventPieces = s.split("_");
+						name = eventPieces[0];
+						start = eventPieces[2];
+						end = eventPieces[3];
+						day = eventPieces[4];
+				%>
+					<p><%= name %>:</br>
+					<%= day %> from <%= start %> to <%= end %>.</p>
+				<% }} %>
+				</td>
 			</tr>
 			<%
 				}}
@@ -287,11 +396,19 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity2.getProperty("user1") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity2.getProperty("user1Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity2.getProperty("user1") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="1"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td><p><%= userGroupEntity2.getProperty("user2") %></p>
@@ -301,11 +418,19 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity2.getProperty("user2") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity2.getProperty("user2Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity2.getProperty("user2") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="2"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td><p><%= userGroupEntity2.getProperty("user3") %></p> 
@@ -315,11 +440,19 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity2.getProperty("user3") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity2.getProperty("user3Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity2.getProperty("user3") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="3"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td><p><%= userGroupEntity2.getProperty("user4") %></p> 
@@ -329,11 +462,19 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity2.getProperty("user4") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity2.getProperty("user4Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity2.getProperty("user4") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="4"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td><p><%= userGroupEntity2.getProperty("user5") %></p>
@@ -343,11 +484,19 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity2.getProperty("user5") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity2.getProperty("user5Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity2.getProperty("user5") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="5"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td>
@@ -359,6 +508,27 @@
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="submit" value="Run Algorithm" class="btn btn-success"/>
 					</form> 
+				</td>
+				<td>
+				<% if(!userGroupEntity1.getProperty("optimalTime1").toString().equals("false")){ 
+					String name = new String();
+					String start = new String();
+					String end = new String();
+					String day = new String();
+					String[] events = new String[3];
+					events[0] = userGroupEntity1.getProperty("optimalTime1").toString();
+					events[1] = userGroupEntity1.getProperty("optimalTime2").toString();
+					events[2] = userGroupEntity1.getProperty("optimalTime3").toString();
+					for(String s : events){ 
+						String[] eventPieces = s.split("_");
+						name = eventPieces[0];
+						start = eventPieces[2];
+						end = eventPieces[3];
+						day = eventPieces[4];
+				%>
+					<p><%= name %>:</br>
+					<%= day %> from <%= start %> to <%= end %>.</p>
+				<% }} %>
 				</td>
 			</tr>
 			<%
@@ -380,6 +550,27 @@
 						<input type="submit" value="Leave Group" class="btn btn-danger"/>
 					</form> 
 				</td>
+				<td>
+				<% if(!userGroupEntity2.getProperty("optimalTime1").toString().equals("false")){ 
+					String name = new String();
+					String start = new String();
+					String end = new String();
+					String day = new String();
+					String[] events = new String[3];
+					events[0] = userGroupEntity2.getProperty("optimalTime1").toString();
+					events[1] = userGroupEntity2.getProperty("optimalTime2").toString();
+					events[2] = userGroupEntity2.getProperty("optimalTime3").toString();
+					for(String s : events){ 
+						String[] eventPieces = s.split("_");
+						name = eventPieces[0];
+						start = eventPieces[2];
+						end = eventPieces[3];
+						day = eventPieces[4];
+				%>
+					<p><%= name %>:</br>
+					<%= day %> from <%= start %> to <%= end %>.</p>
+				<% }} %>
+				</td>
 			</tr>
 			<%
 				}}
@@ -398,11 +589,19 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity3.getProperty("user1") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity3.getProperty("user1Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity3.getProperty("user1") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="1"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td><p><%= userGroupEntity3.getProperty("user2") %></p> 
@@ -412,11 +611,19 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity3.getProperty("user2") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity3.getProperty("user2Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity3.getProperty("user2") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="2"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td><p><%= userGroupEntity3.getProperty("user3") %></p>
@@ -426,11 +633,19 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity3.getProperty("user3") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity3.getProperty("user3Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity3.getProperty("user3") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="3"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td><p><%= userGroupEntity3.getProperty("user4") %></p> 
@@ -440,10 +655,18 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity3.getProperty("user4") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity3.getProperty("user4Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity3.getProperty("user4") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
+					</form>
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="4"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
 					</form>
 					<% } %> 
 				</td>
@@ -454,11 +677,19 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity3.getProperty("user5") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity3.getProperty("user5Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity3.getProperty("user5") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="5"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td>
@@ -471,6 +702,27 @@
 						<input type="submit" value="Run Algorithm" class="btn btn-success"/>
 					</form> 
 					
+				</td>
+				<td>
+				<% if(!userGroupEntity3.getProperty("optimalTime1").toString().equals("false")){ 
+					String name = new String();
+					String start = new String();
+					String end = new String();
+					String day = new String();
+					String[] events = new String[3];
+					events[0] = userGroupEntity3.getProperty("optimalTime1").toString();
+					events[1] = userGroupEntity3.getProperty("optimalTime2").toString();
+					events[2] = userGroupEntity3.getProperty("optimalTime3").toString();
+					for(String s : events){ 
+						String[] eventPieces = s.split("_");
+						name = eventPieces[0];
+						start = eventPieces[2];
+						end = eventPieces[3];
+						day = eventPieces[4];
+				%>
+					<p><%= name %>:</br>
+					<%= day %> from <%= start %> to <%= end %>.</p>
+				<% }} %>
 				</td>
 			</tr>
 			<%
@@ -492,6 +744,27 @@
 						<input type="submit" value="Leave Group" class="btn btn-danger"/>
 					</form> 
 				</td>
+				<td>
+				<% if(!userGroupEntity3.getProperty("optimalTime1").toString().equals("false")){ 
+					String name = new String();
+					String start = new String();
+					String end = new String();
+					String day = new String();
+					String[] events = new String[3];
+					events[0] = userGroupEntity3.getProperty("optimalTime1").toString();
+					events[1] = userGroupEntity3.getProperty("optimalTime2").toString();
+					events[2] = userGroupEntity3.getProperty("optimalTime3").toString();
+					for(String s : events){ 
+						String[] eventPieces = s.split("_");
+						name = eventPieces[0];
+						start = eventPieces[2];
+						end = eventPieces[3];
+						day = eventPieces[4];
+				%>
+					<p><%= name %>:</br>
+					<%= day %> from <%= start %> to <%= end %>.</p>
+				<% }} %>
+				</td>
 			</tr>
 			<%
 				}}
@@ -510,11 +783,19 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity4.getProperty("user1") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity4.getProperty("user1Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity4.getProperty("user1") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="1"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td><p><%= userGroupEntity4.getProperty("user2") %></p> 
@@ -524,11 +805,19 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity4.getProperty("user2") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity4.getProperty("user2Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity4.getProperty("user2") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="2"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td><p><%= userGroupEntity4.getProperty("user3") %></p> 
@@ -538,10 +827,18 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity4.getProperty("user3") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity4.getProperty("user3Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity4.getProperty("user3") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
+					</form>
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="3"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
 					</form>
 					<% } %> 
 				</td>
@@ -552,11 +849,19 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity4.getProperty("user4") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity4.getProperty("user4Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity4.getProperty("user4") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="4"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td><p><%= userGroupEntity4.getProperty("user5") %></p>
@@ -566,11 +871,19 @@
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity4.getProperty("user5") %>"/>
 						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
+				<% if(userGroupEntity4.getProperty("user5Flag").toString().equals("True")){ %>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity4.getProperty("user5") %>"/>
 						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
+					<% }} else { %>
+					<form action="addMember" method="post">
+						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
+						<input type="hidden" name="slotNumber" value="5"/>
+						<input type="text" name="newMember" placeholder="New Member E-mail" required></br>
+						<input type="submit" value="Add Member" class="btn btn-success">
+					</form>
 					<% } %>
 				</td>
 				<td>
@@ -582,6 +895,27 @@
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="submit" value="Run Algorithm" class="btn btn-success"/>
 					</form> 
+				</td>
+				<td>
+				<% if(!userGroupEntity4.getProperty("optimalTime1").toString().equals("false")){ 
+					String name = new String();
+					String start = new String();
+					String end = new String();
+					String day = new String();
+					String[] events = new String[3];
+					events[0] = userGroupEntity4.getProperty("optimalTime1").toString();
+					events[1] = userGroupEntity4.getProperty("optimalTime2").toString();
+					events[2] = userGroupEntity4.getProperty("optimalTime3").toString();
+					for(String s : events){ 
+						String[] eventPieces = s.split("_");
+						name = eventPieces[0];
+						start = eventPieces[2];
+						end = eventPieces[3];
+						day = eventPieces[4];
+				%>
+					<p><%= name %>:</br>
+					<%= day %> from <%= start %> to <%= end %>.</p>
+				<% }} %>
 				</td>
 			</tr>
 			<%
@@ -603,6 +937,27 @@
 						<input type="submit" value="Leave Group" class="btn btn-danger"/>
 					</form> 
 				</td>
+				<td>
+				<% if(!userGroupEntity4.getProperty("optimalTime1").toString().equals("false")){ 
+					String name = new String();
+					String start = new String();
+					String end = new String();
+					String day = new String();
+					String[] events = new String[3];
+					events[0] = userGroupEntity4.getProperty("optimalTime1").toString();
+					events[1] = userGroupEntity4.getProperty("optimalTime2").toString();
+					events[2] = userGroupEntity4.getProperty("optimalTime3").toString();
+					for(String s : events){ 
+						String[] eventPieces = s.split("_");
+						name = eventPieces[0];
+						start = eventPieces[2];
+						end = eventPieces[3];
+						day = eventPieces[4];
+				%>
+					<p><%= name %>:</br>
+					<%= day %> from <%= start %> to <%= end %>.</p>
+				<% }} %>
+				</td>
 			</tr>
 			<%
 				}
@@ -613,8 +968,39 @@
 		</div>
 			<%	
 				}
-				}
-				}	
+				}else {
+				%>
+				<!-- HTML for logged-in user that has an account, but is not apart of a group.  Something along the lines of "You are not in any groups. go join one!" -->
+					<div class="navbar navbar-default">
+					<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/FindTheTime.jsp">Find The Time</a>
+					</div>
+					<div class="navbar-collapse collapse navbar-responsive-collapse">
+					<ul class="nav navbar-nav">
+					  <li><a href="/FindTheTime.jsp">Home</a></li>
+					  <li><a href="/createGroup.jsp">Create a Group</a></li>
+					  <li><a href="/joinGroup.jsp">Join a Group</a></li>
+					  <li><a href="/faq.jsp">FAQs</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+					  <li class="active"><a href="/myGroups.jsp">My Groups</a></li>
+					  <li><a href="/myCalendar.jsp">My Calendar</a></li>
+					  <li class="active"><a href="<%=userService.createLogoutURL(request.getRequestURI())%>">Sign Out</a></li>
+					</ul>
+					</div>
+					</div>
+					<div id="content">
+						<h2>This is the My Groups page.</h2>
+						<p>Click <a href="/createGroup.jsp">here</a> to create a group.</p>
+					</div>
+				
+				<%
+				}}	
 				else {	
 				System.out.println("User isn't signed in. Displaying not-signed-in page");
 			%>

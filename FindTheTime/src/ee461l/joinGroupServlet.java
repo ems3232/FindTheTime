@@ -2,6 +2,7 @@ package ee461l;
 
 
 import com.google.appengine.api.datastore.DatastoreService;
+
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.FetchOptions;
@@ -71,28 +72,38 @@ public class joinGroupServlet extends HttpServlet {
         	datastore.put(users);
         }
         //get the team entity
-        
-   
+        boolean noJoin=false;
+  				//add group to user
+  				for (Integer i = 1; i <= 4; i++) {
+  				if(users.getProperty("group" + i.toString()) !=null) {}
+  				else {
+  					users.setProperty("group" + i.toString(), teamName);
+  					noJoin=true;
+  					break;
+  						}
+  					}
+  			if(noJoin){	
         //add user to group
         for (Integer i = 1; i <= 5; i++) {
         	if (teamEntity.getProperty("user" + i.toString()).toString().equalsIgnoreCase(user.getEmail())) {
         		teamEntity.setProperty("user" + i.toString() + "Flag", true);
         		break;
-        	}
-        }
-     
-        //add group to user
-        for (Integer i = 1; i <= 4; i++) {
-        	if(users.getProperty("group" + i.toString()) !=null) {}
-        	else {
-        		users.setProperty("group" + i.toString(), teamName);
-        		break;
-        	}
-        }
+        			}
+        		}
+  			}
+  			else{
+  			  for (Integer i = 1; i <= 5; i++) {
+  	        	if (teamEntity.getProperty("user" + i.toString()).toString().equalsIgnoreCase(user.getEmail())) {
+  	        		teamEntity.setProperty("user" + i.toString() + "Flag", true);
+  	        		teamEntity.setProperty("user" + i.toString(), "N/A");
+  	        		break;
+  	        	}
+  			  }
+  			}
        datastore.put(teamEntity);
        datastore.put(users);
         //redirect to user's group page
-        resp.sendRedirect("/FindTheTime.jsp");
+        resp.sendRedirect("/myGroups.jsp");
 	}
 	
 	private Entity createUser(User	user,Key appKey) {
