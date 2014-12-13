@@ -51,23 +51,27 @@ public class joinGroupServlet extends HttpServlet {
         		break;
         	}
         }
-       
-        if (found == false) {
+       Query query2 = new Query("group", appKey);
+       List<Entity> groups = datastore.prepare(query2).asList(FetchOptions.Builder.withLimit(5000));
+       boolean founded=false;
+       Entity teamEntity = null;
+       for (Entity e : groups) {
+       	if (e.getProperty("teamName").toString().equals(teamName)) {
+       		teamEntity = e;
+       		founded=true;
+       		break;
+       	}
+       }
+  if(!founded){
+	   //fuck yourself
+	   resp.sendRedirect("/joinGroup.jsp?" + founded);
+  }
+  else if(!found) {
         	users = createUser(user,appKey);
-        datastore.put(users);}
+        	datastore.put(users);
+        }
         //get the team entity
         
-        query = new Query("group", appKey);
-        List<Entity> groups = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5000));
-        
-        Entity teamEntity = null;
-        for (Entity e : groups) {
-        	if (e.getProperty("teamName").toString().equals(teamName)) {
-        		teamEntity = e;
-        		break;
-        	}
-        }
-     
    
         //add user to group
         for (Integer i = 1; i <= 5; i++) {
@@ -97,7 +101,8 @@ public class joinGroupServlet extends HttpServlet {
 		newUserEntity.setProperty("group1", null);
 		newUserEntity.setProperty("group2", null);
 		newUserEntity.setProperty("group3", null);
-		newUserEntity.setProperty("group4", null);		
+		newUserEntity.setProperty("group4", null);	
+		newUserEntity.setProperty("calendar","false");
 		return newUserEntity;
 	}
 	
