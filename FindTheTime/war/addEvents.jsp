@@ -1,4 +1,4 @@
-�ｿ<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ page import="java.util.List"%>
 <%@ page import="com.google.appengine.api.users.User"%>
 <%@ page import="com.google.appengine.api.users.UserService"%>
@@ -11,7 +11,6 @@
 <%@ page import="com.google.appengine.api.datastore.Key"%>
 <%@ page import="com.google.appengine.api.datastore.KeyFactory"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
 
 <html>
 <head>
@@ -231,8 +230,7 @@ optionj.value = "45";
 	<div id="content">
 		<h2>This is the Add Events to My Calendar Page.</h2>
 		<p>Click <a href="/viewCalendar.jsp">here</a> if you need to view your calendar or remove events.</p>
-		<%//The table needs to be put into a form!!!!%>
-		<button onClick="myCreateFunction()">Add Another Event</button><p id="testOut"></p>
+		<button onClick="myCreateFunction()" class="btn btn-info">Add Another Event</button><p id="testOut"></p>
 		<form action="createCal" method="post">
 		<input type="hidden" name="rowNumber" id="rowNumber" value="1"></input>
 		<table id="addEventTable">
@@ -319,14 +317,10 @@ optionj.value = "45";
 				  	<INPUT TYPE="Checkbox" VALUE="sat" NAME="Event1Sat" onClick=""> Sat</TD>
 			</tr>
 		</table>
-		<input type="submit"/>
+		</br>
+		<input type="submit" class="btn btn-success">
 		</form>
-		</br></br>
-		<h3>Update Calendar!</h3>
-		<form action="/createCal" method="post">
-			<input type="submit" value="Update"> 
-		</form>
-		</br></br>
+		</br>
 		<p><a href="/myCalendar.jsp">Go Back</a> to the main My Calendar page.</p>
 	</div>
 	<%

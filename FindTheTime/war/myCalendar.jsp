@@ -12,7 +12,6 @@
 <%@ page import="com.google.appengine.api.datastore.KeyFactory"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-
 <html>
 <head>
 <link type="text/css" rel="stylesheet" href="/FindTheTime.css" />
@@ -65,11 +64,6 @@
 	<div id="content">
 		<h2>This is the My Calendar Page.</h2>
 		
-		
-		
-		
-		
-		
 		<%//NEEDS FIXIN: Only display add events to my calendar if member is in a group. Otherwise, tell user to join or create a group.
 	    	String appName = "default";
 	    	DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -87,10 +81,10 @@
 	        }
 	        	if(found == true){ %>
 		        	<form action="/addEvents.jsp">
-	    				<input type="submit" value="Add Events to My Calendar">
+		        		<input type="submit" value="Add Events to My Calendar" class="btn btn-info">
 					</form>
 					<form action="/viewCalendar.jsp">
-	    				<input type="submit" value="View My Calendar">
+		        		<input type="submit" value="View My Calendar" class="btn btn-info">
 					</form>
 			
 				<% }
@@ -98,13 +92,7 @@
 	        		<p><a href="/createGroup.jsp">Create</a> or <a href="/joinGroup.jsp">join</a> a group before viewing your calendar.</p>
 	        	<% }
 	    %>
-		
-		
-		
-		
-		
-		
-		
+	
 	</div>
 	<%
 		} else {

@@ -174,12 +174,12 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity1.getProperty("user1") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity1.getProperty("user1") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
 					<% } %>
 				</td>
@@ -188,12 +188,12 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity1.getProperty("user2") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity1.getProperty("user2") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
 					<% } %>
 				</td>
@@ -202,12 +202,12 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity1.getProperty("user3") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity1.getProperty("user3") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
 					<% } %>
 				</td>
@@ -216,12 +216,12 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity1.getProperty("user4") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-success"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity1.getProperty("user4") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-danger"/>
 					</form> 
 					<% } %>
 				</td>
@@ -230,23 +230,23 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity1.getProperty("user5") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-success"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity1.getProperty("user5") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-danger"/>
 					</form> 
 					<% } %>
 				</td>
 				<td>
 					<form action="disbandGroup" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
-						<input type="submit" value="Disband Group"/>
+						<input type="submit" value="Disband Group" class="btn btn-warning"/>
 					</form>
 					<form action="runAlgorithm" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
-						<input type="submit" value="Run Algorithm"/>
+						<input type="submit" value="Run Algorithm" class="btn btn-success"/>
 					</form> 
 				</td>
 			</tr>
@@ -266,7 +266,7 @@
 					<form action="leaveGroup" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity1.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= user.getEmail() %>"/>
-						<input type="submit" value="Leave Group"/>
+						<input type="submit" value="Leave Group" class="btn btn-danger"/>
 					</form> 
 				</td>
 			</tr>
@@ -285,12 +285,12 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity2.getProperty("user1") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity2.getProperty("user1") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
 					<% } %>
 				</td>
@@ -299,12 +299,12 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity2.getProperty("user2") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity2.getProperty("user2") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
 					<% } %>
 				</td>
@@ -313,12 +313,12 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity2.getProperty("user3") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity2.getProperty("user3") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
 					<% } %>
 				</td>
@@ -327,12 +327,12 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity2.getProperty("user4") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity2.getProperty("user4") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
 					<% } %>
 				</td>
@@ -341,23 +341,23 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity2.getProperty("user5") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity2.getProperty("user5") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
 					<% } %>
 				</td>
 				<td>
 					<form action="disbandGroup" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
-						<input type="submit" value="Disband Group"/>
+						<input type="submit" value="Disband Group" class="btn btn-warning"/>
 					</form>
 					<form action="runAlgorithm" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
-						<input type="submit" value="Run Algorithm"/>
+						<input type="submit" value="Run Algorithm" class="btn btn-success"/>
 					</form> 
 				</td>
 			</tr>
@@ -377,7 +377,7 @@
 					<form action="leaveGroup" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity2.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= user.getEmail() %>"/>
-						<input type="submit" value="Leave Group"/>
+						<input type="submit" value="Leave Group" class="btn btn-danger"/>
 					</form> 
 				</td>
 			</tr>
@@ -396,12 +396,12 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity3.getProperty("user1") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity3.getProperty("user1") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
 					<% } %>
 				</td>
@@ -410,12 +410,12 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity3.getProperty("user2") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity3.getProperty("user2") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
 					<% } %>
 				</td>
@@ -424,12 +424,12 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity3.getProperty("user3") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity3.getProperty("user3") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
 					<% } %>
 				</td>
@@ -438,12 +438,12 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity3.getProperty("user4") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity3.getProperty("user4") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form>
 					<% } %> 
 				</td>
@@ -452,23 +452,23 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity3.getProperty("user5") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity3.getProperty("user5") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
 					<% } %>
 				</td>
 				<td>
 					<form action="disbandGroup" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
-						<input type="submit" value="Disband Group"/>
+						<input type="submit" value="Disband Group" class="btn btn-warning"/>
 					</form>
 					<form action="runAlgorithm" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
-						<input type="submit" value="Run Algorithm"/>
+						<input type="submit" value="Run Algorithm" class="btn btn-success"/>
 					</form> 
 					
 				</td>
@@ -489,7 +489,7 @@
 					<form action="leaveGroup" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity3.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= user.getEmail() %>"/>
-						<input type="submit" value="Leave Group"/>
+						<input type="submit" value="Leave Group" class="btn btn-danger"/>
 					</form> 
 				</td>
 			</tr>
@@ -508,12 +508,12 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity4.getProperty("user1") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity4.getProperty("user1") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
 					<% } %>
 				</td>
@@ -522,12 +522,12 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity4.getProperty("user2") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity4.getProperty("user2") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
 					<% } %>
 				</td>
@@ -536,12 +536,12 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity4.getProperty("user3") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity4.getProperty("user3") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form>
 					<% } %> 
 				</td>
@@ -550,12 +550,12 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity4.getProperty("user4") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity4.getProperty("user4") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
 					<% } %>
 				</td>
@@ -564,23 +564,23 @@
 					<form action="kickMember" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= userGroupEntity4.getProperty("user5") %>"/>
-						<input type="submit" value="Kick"/>
+						<input type="submit" value="Kick" class="btn btn-danger"/>
 					</form>
 					<form action="delegateLeader" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="newLeader" value="<%= userGroupEntity4.getProperty("user5") %>"/>
-						<input type="submit" value="Delegate Leader"/>
+						<input type="submit" value="Delegate Leader" class="btn btn-success"/>
 					</form> 
 					<% } %>
 				</td>
 				<td>
 					<form action="disbandGroup" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
-						<input type="submit" value="Disband Group"/>
+						<input type="submit" value="Disband Group" class="btn btn-warning"/>
 					</form>
 					<form action="runAlgorithm" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
-						<input type="submit" value="Run Algorithm"/>
+						<input type="submit" value="Run Algorithm" class="btn btn-success"/>
 					</form> 
 				</td>
 			</tr>
@@ -600,7 +600,7 @@
 					<form action="leaveGroup" method="post">
 						<input type="hidden" name="teamName" value="<%= userGroupEntity4.getProperty("teamName") %>"/>
 						<input type="hidden" name="kickMember" value="<%= user.getEmail() %>"/>
-						<input type="submit" value="Leave Group"/>
+						<input type="submit" value="Leave Group" class="btn btn-danger"/>
 					</form> 
 				</td>
 			</tr>
