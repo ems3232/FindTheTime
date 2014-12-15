@@ -155,7 +155,7 @@ A team leader has a few extra abilities within the application that normal group
     <h3 class="panel-title">How will we know what our top meeting times are?</h3>
   </div>
   <div class="panel-body">
-	We will send an email to the leader of your group with the top three meeting times where they can then decide which time works best for your team.
+	The top 3 meeting times for the group will be displayed on the "My Groups" page on the far right column if the algorithm has been run.
   </div>
 </div>
 	
@@ -275,7 +275,7 @@ A team leader has a few extra abilities within the application that normal group
     <h3 class="panel-title">How will we know what our top meeting times are?</h3>
   </div>
   <div class="panel-body">
-	We will send an email to the leader of your group with the top three meeting times where they can then decide which time works best for your team.
+	The top 3 meeting times for the group will be displayed on the "My Groups" page on the far right column if the algorithm has been run.
   </div>
 </div>
 

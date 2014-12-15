@@ -190,7 +190,7 @@ function checkValidEventName( form ){
 			var und = /_+/.test(elements[i].value);
 		
 			if( amp || und ){
-				alert( "You used an & or an _ and that would completely fuck everything up. Try again, dumbass." );
+				alert( "Please do not use an & or an _ in the event name. Try again and resubmit." );
 				return false;
 			}
 		}

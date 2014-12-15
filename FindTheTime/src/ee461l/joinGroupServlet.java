@@ -64,7 +64,7 @@ public class joinGroupServlet extends HttpServlet {
        	}
        }
   if(!founded){
-	   //fuck yourself
+
 	   resp.sendRedirect("/joinGroup.jsp?" + founded);
   }
   else if(!found) {
